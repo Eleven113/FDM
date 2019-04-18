@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Feuille de match</title>
+</head>
+
+<body>
+    <h1>Feuille de match</h1>
+    <div id="formulaire">
+        <p>
+            <label for="av">Adversaire :</label>
+            <input type="text" name="adv" id="adv" required>
+        </p>
+        <p>
+            <p>Lieu du match :</p>
+            <div>
+                <input type="radio" id="lieu" name="lieu" value="home" checked>
+                <label for="home">à domicile</label>
+            </div>
+
+            <div>
+                <input type="radio" id="lieu" name="lieu" value="away">
+                <label for="away">à l'extérieur</label>
+            </div>
+        </p>
+        <p>
+            Durée du match :<br />
+            <select name="nb_periode" id="nb_periode">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            période(s) de
+            <input type="number" id="tps_periode" name="tps_periode"> minute(s)
+        </p>
+        <p>
+            <input type="submit" id="button" value="Créer match">
+        </p>
+    </div>
+    <!-- Les nouveaux éléments sont ajoutés dans cette balise -->
+    <div id="container">
+        <div id="team">
+            <div id="team_home">
+                <div id="logo_team_home"></div>
+                <div id="name_team_home" class="team_name"></div>
+                <div id="score_team_home" class="score">0</div>
+            </div>
+            <div id="team_minus" class="minus"><i class="fas fa-minus"></i></div>
+            <div id="team_away">
+                <div id="logo_team_away"></div>
+                <div id="name_team_away"  class="team_name"></div>
+                <div id="score_team_away" class="score">0</div>
+            </div>
+        </div>
+        <div id="chrono" class="border">
+        </div>
+        <div id="data">
+            <div id="shoot" class="data_case">
+                <div id="shoot_title" class="title_flex"><span></span><span>Tirs</span><span></span></div>
+                <div id="shoot_data" class="data_flex"><span id="data_shoot">0</span></div>
+            </div>
+
+            <div id="shoot_on_target" class="data_case">
+                <div id="shoot_on_target_title" class="title_flex"><i class="far fa-minus-square data_btn" id="shoot_on_target_btn_min"></i><span class="data_txt">Tirs cadrés</span><i class="far fa-plus-square data_btn" id="shoot_on_target_btn_pls"></i></div>
+                <div id="shoot_on_target_data" class="data_flex"><span id="data_shoot_on_target">0</span>&nbsp;-&nbsp;<span id="datapercent_shoot_on_target">0%</span></div>
+            </div>
+
+            <div id="shoot_miss" class="data_case">
+                <div id="shoot_miss_title" class="title_flex"><i class="far fa-minus-square data_btn" id="shoot_miss_btn_min"></i><span class="data_txt">Tirs non cadrés</span><i class="far fa-plus-square data_btn" id="shoot_miss_btn_pls"></i></div>
+                <div id="shoot_miss_data" class="data_flex"><span id="data_shoot_miss">0</span>&nbsp;-&nbsp;<span id="datapercent_shoot_miss">0%</span></div>
+            </div>            
+            
+            <div id="pass" class="data_case">
+                <div id="pass_title" class="title_flex"><span></span><span class="data_txt">Passes</span><span></span></div>
+                <div id="pass_data" class="data_flex"><span>0</span></div>
+            </div>
+
+            <div id="pass_ok" class="data_case">
+                <div id="pass_ok_title" class="title_flex"><i class="far fa-minus-square data_btn" id="pass_ok_btn_min"></i><span class="data_txt">Passes réussies</span><i class="far fa-plus-square data_btn" id="pass_ok_btn_pls"></i></div>
+                <div id="pass_ok_data" class="data_flex"><span>0</span>&nbsp;-&nbsp;<span>0%</span></div>
+            </div>
+
+            <div id="pass_nok" class="data_case">
+                <div id="pass_nok_title" class="title_flex"><i class="far fa-minus-square data_btn" id="pass_nok_btn_min"></i><span class="data_txt">Passes ratées</span><i class="far fa-plus-square data_btn" id="pass_nok_btn_pls"></i></div>
+                <div id="pass_nok_data" class="data_flex"><span>0</span>&nbsp;-&nbsp;<span>0%</span></div>
+            </div>
+
+            <div id="lose_ball" class="data_case">
+                <div id="lose_ball_title" class="title_flex"><i class="far fa-minus-square data_btn" id="lose_ball_btn_min"></i><span class="data_txt">Duels perdus</span><i class="far fa-plus-square data_btn" id="lose_ball_btn_pls"></i></div>
+                <div id="lose_ball_data" class="data_flex"><span id="data_lose_ball">0</span></div>
+            </div>
+
+            <div id="win_ball" class="data_case">
+                <div id="win_ball_title" class="title_flex"><i class="far fa-minus-square data_btn" id="win_ball_btn_min"></i><span class="data_txt">Duels gagnés</span><i class="far fa-plus-square data_btn" id="win_ball_btn_pls"></i></div>
+                <div id="win_ball_data" class="data_flex"><span id="data_win_ball">0</span></div>
+            </div>
+
+            <div id="corner" class="data_case">
+                <div id="corner_title" class="title_flex"><i class="far fa-minus-square data_btn" id="corner_btn_min"></i><span class="data_txt">Corners</span><i class="far fa-plus-square data_btn" id="corner_btn_pls"></i></div>
+                <div id="corner_data" class="data_flex"><span id="data_corner" >0</span></div>
+            </div>
+
+            <div id="throw_in" class="data_case">
+                <div id="throw_in_title" class="title_flex"><i class="far fa-minus-square data_btn" id="throw_in_btn_min"></i><span class="data_txt">Touches</span><i class="far fa-plus-square data_btn" id="throw_in_btn_pls"></i></div>
+                <div id="throw_in_data" class="data_flex"><span id="data_throw_in">0</span></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/fdm.js"></script>
+</body>
+
+</html>

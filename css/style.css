@@ -1,0 +1,74 @@
+#container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+#team {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.title_flex {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.data_flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.data_case {
+    width: 35%;
+    font-size: 2em;
+}
+
+
+#team_home{
+   
+}
+
+.logo_team{
+    display: block;
+    width : 150px;
+    height: 150px;
+}
+
+.border{
+    border: 1px solid black;
+}
+
+.team_name{
+    font-size : 2em;
+    text-align: center;
+}
+
+.score{
+    font-size: 5em;
+    text-align: center;
+}
+
+.minus{
+    font-size: 4.6em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#chrono{
+    height: 30px;
+    width: 100%;
+}
