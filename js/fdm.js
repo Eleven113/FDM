@@ -7,20 +7,20 @@ button.addEventListener("click", function(){
     // Lors du clic le formulaire disparait, et la feuille de stats apparait
     formulaire.style.display = "none";
     container.style.display = "flex";
-    
+
     let logoTeamHome = document.getElementById("logo_team_home");
     let nameTeamHome = document.getElementById("name_team_home");
     let logoTeamAway = document.getElementById("logo_team_away");
     let nameTeamAway = document.getElementById("name_team_away");
-    
+
     let lieu = document.querySelector('input[name=lieu]:checked').value;
     let teamAdv = document.getElementById("adv").value;
-    
+
     if (lieu === "home") {
         // Attribution du nom de l'équipe dans la div
         nameTeamHome.textContent = "Stade Lavallois";
         nameTeamAway.textContent = teamAdv;
-        
+
 //        // Création Image Logo Domicile
         let logoHome = document.createElement("img");
         logoHome.alt="Logo Stade Lavallois"
@@ -33,13 +33,13 @@ button.addEventListener("click", function(){
         logoAway.src="../image/logo_adv.png"
         logoAway.className="logo_team";
         logoTeamAway.append(logoAway);
-        
+
     }
     else {
         // Attribution du nom de l'équipe dans la div
         nameTeamHome.textContent = teamAdv;
         nameTeamAway.textContent = "Stade Lavallois";
-        
+
         // Création Image Logo Domicile
         let logoHome = document.createElement("img");
         logoHome.alt="Logo Adversaire"
@@ -53,95 +53,43 @@ button.addEventListener("click", function(){
         logoAway.className="logo_team";
         logoTeamAway.append(logoAway);
     };
-    
+
 });
 
+// Fonctionnement des boutons plus et moins
 
-// Fonctionnement des boutons plus et moins Corners
-let corner_btn_min = document.getElementById("corner_btn_min");
-let corner_btn_pls = document.getElementById("corner_btn_pls");
+function configureMinButton(htmlElement) {
+  let name = htmlElement.id;
+  let type = name.substring(0, name.length-8);
+  console.log(type);
+  htmlElement.addEventListener("click", function(){
+    let data = document.getElementById("data_" + type).textContent;
+    let num = parseInt(data);
+    console.log("click moins", type);
+    if (num) {
+      document.getElementById("data_" + type).textContent = num - 1;
+    }
+  });
+}
 
-corner_btn_pls.addEventListener("click",function(){
-        let corner = document.getElementById("data_corner").textContent;
-        let num_corner = parseInt(corner);
-        console.log("click plus corner");
-        document.getElementById("data_corner").textContent = (num_corner+ 1);
-});
+function configurePlusButton(htmlElement) {
+  let name = htmlElement.id;
+  let type = name.substring(0, name.length-8);
+  console.log(type);
+  htmlElement.addEventListener("click", function(){
+    let data = document.getElementById("data_" + type).textContent;
+    let num = parseInt(data);
+    console.log("click plus", type);
+    document.getElementById("data_" + type).textContent = num + 1;
+  });
+}
 
-corner_btn_min.addEventListener("click",function(){
-        let corner = document.getElementById("data_corner").textContent;
-        let num_corner = parseInt(corner);
-        console.log("click moins corner");
-    
-        if (num_corner != 0){
-            document.getElementById("data_corner").textContent = (num_corner - 1);
-        }        
-});
-
-
-
-// Fonctionnement des boutons plus et moins Touches
-let throw_in_btn_min = document.getElementById("throw_in_btn_min");
-let throw_in_btn_pls = document.getElementById("throw_in_btn_pls");
-
-throw_in_btn_pls.addEventListener("click",function(){
-        let throw_in = document.getElementById("data_throw_in").textContent;
-        let num_throw_in = parseInt(throw_in);
-        console.log("click plus throw_in");
-        document.getElementById("data_throw_in").textContent = (num_throw_in+ 1);
-});
-
-throw_in_btn_min.addEventListener("click",function(){
-        let throw_in = document.getElementById("data_throw_in").textContent;
-        let num_throw_in = parseInt(throw_in);
-        console.log("click moins throw_in");
-    
-        if (num_throw_in != 0){
-            document.getElementById("data_throw_in").textContent = (num_throw_in - 1);
-        }        
-});
-
-// Fonctionnement des boutons plus et moins Récupération de balles
-let win_ball_btn_min = document.getElementById("win_ball_btn_min");
-let win_ball_btn_pls = document.getElementById("win_ball_btn_pls");
-
-win_ball_btn_pls.addEventListener("click",function(){
-        let win_ball = document.getElementById("data_win_ball").textContent;
-        let num_win_ball= parseInt(win_ball);
-        console.log("click plus win_ball");
-        document.getElementById("data_win_ball").textContent = (num_win_ball+ 1);
-});
-
-win_ball_btn_min.addEventListener("click",function(){
-        let win_ball = document.getElementById("data_win_ball").textContent;
-        let num_win_ball= parseInt(win_ball);
-        console.log("click moins win_ball");
-    
-        if (num_win_ball != 0){
-            document.getElementById("data_win_ball").textContent = (num_win_ball - 1);
-        }
-});
-
-// Fonctionnement des boutons plus et moins Perte de balles
-let lose_ball_btn_min = document.getElementById("lose_ball_btn_min");
-let lose_ball_btn_pls = document.getElementById("lose_ball_btn_pls");
-
-lose_ball_btn_pls.addEventListener("click",function(){
-        let lose_ball = document.getElementById("data_lose_ball").textContent;
-        let num_lose_ball= parseInt(lose_ball);
-        console.log("click plus lose_ball");
-        document.getElementById("data_lose_ball").textContent = (num_lose_ball+ 1);
-});
-
-lose_ball_btn_min.addEventListener("click",function(){
-        let lose_ball = document.getElementById("data_lose_ball").textContent;
-        let num_lose_ball= parseInt(lose_ball);
-        console.log("click moins lose_ball");
-    
-        if (num_lose_ball != 0){
-            document.getElementById("data_lose_ball").textContent = (num_lose_ball - 1);
-        }
-});
+for (let htmlElement of document.getElementsByClassName('far fa-minus-square data_btn')) {
+  configureMinButton(htmlElement);
+}
+for (let htmlElement of document.getElementsByClassName('far fa-plus-square data_btn')) {
+  configurePlusButton(htmlElement);
+}
 
 
 // Fonctionnement Tirs
@@ -163,7 +111,7 @@ shoot_on_target_btn_min.addEventListener("click",function(){
             if (num_shoot_on_target != 1){
                 document.getElementById("data_shoot").textContent = (num_shoot-1) ;
                 document.getElementById("data_shoot_on_target").textContent = (num_shoot_on_target - 1);
-                
+
                 console.log(((num_shoot_on_target-1) / (num_shoot-1)) * 100);
                 let numpercent_shoot = parseFloat((((num_shoot_on_target-1) / (num_shoot-1)) * 100).toFixed(2));
                 let numpercent_shoot_miss = 100 - numpercent_shoot ;
@@ -189,7 +137,7 @@ shoot_on_target_btn_pls.addEventListener("click",function(){
         console.log(num_shoot);
         document.getElementById("data_shoot").textContent = (num_shoot+1) ;
         document.getElementById("data_shoot_on_target").textContent = (num_shoot_on_target + 1);
-    
+
         let numpercent_shoot = parseFloat((((num_shoot_on_target+1) / (num_shoot+1)) * 100).toFixed(2));
         let numpercent_shoot_miss = 100 - numpercent_shoot ;
         document.getElementById("datapercent_shoot_on_target").textContent = numpercent_shoot + " %";
@@ -202,7 +150,7 @@ shoot_miss_btn_min.addEventListener("click",function(){
         let num_miss_shoot = parseInt(document.getElementById("data_shoot_miss").textContent);
         console.log("click moins Miss_Shot");
         console.log(num_shoot);
-    
+
         if(num_miss_shoot >0){
             if (num_miss_shoot != 1){
                 document.getElementById("data_shoot").textContent = (num_shoot-1) ;
@@ -210,7 +158,7 @@ shoot_miss_btn_min.addEventListener("click",function(){
 
                 console.log((num_miss_shoot-1) / (num_shoot-1));
                 let numpercent_miss_shoot = parseFloat((((num_miss_shoot-1) / (num_shoot-1)) * 100).toFixed(2));
-                let numpercent_shoot = 100 - numpercent_miss_shoot; 
+                let numpercent_shoot = 100 - numpercent_miss_shoot;
                 document.getElementById("datapercent_shoot_on_target").textContent = numpercent_shoot + " %";
                 document.getElementById("datapercent_shoot_miss").textContent = numpercent_miss_shoot + " %";
             }
@@ -220,7 +168,7 @@ shoot_miss_btn_min.addEventListener("click",function(){
                 document.getElementById("datapercent_shoot_miss").textContent = 0 + " %";
                 if (document.getElementById("data_shoot_on_target").textContent > 0){
                         document.getElementById("datapercent_shoot_on_target").textContent = "100 %";
-                }            
+                }
             }
         }
 });
@@ -233,10 +181,9 @@ shoot_miss_btn_pls.addEventListener("click",function(){
         console.log(num_shoot);
         document.getElementById("data_shoot").textContent = (num_shoot+1) ;
         document.getElementById("data_shoot_miss").textContent = (num_miss_shoot + 1);
-    
+
         let numpercent_miss_shoot = parseFloat((((num_miss_shoot+1) / (num_shoot+1)) * 100).toFixed(2));
-        let numpercent_shoot = 100 - numpercent_miss_shoot; 
+        let numpercent_shoot = 100 - numpercent_miss_shoot;
         document.getElementById("datapercent_shoot_on_target").textContent = numpercent_shoot + " %";
         document.getElementById("datapercent_shoot_miss").textContent = numpercent_miss_shoot + " %";
 });
-
