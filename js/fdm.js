@@ -56,27 +56,96 @@ button.addEventListener("click", function () {
 
 function configureMinButton(htmlElement) {
   let name = htmlElement.id;
-  let type = name.substring(0, name.length-8);
-  console.log(type);
+  let type = name.split('_');
   htmlElement.addEventListener("click", function(){
-    let data = document.getElementById("data_" + type).textContent;
+    console.log(type);
+    let data = document.getElementById(type.slice(0,-2).join('_') + "_data").textContent;
     let num = parseInt(data);
-    console.log("click moins", type);
-    if (num) {
-      document.getElementById("data_" + type).textContent = num - 1;
+    console.log("click moins", type.slice(0,-2).join('_'));
+    if (type[1] === 'ok' || type[1] === 'nok') {
+      let num_total = parseInt(document.getElementById(type[0] + "_data").textContent);
+      let num_ok = parseInt(document.getElementById(type[0] + "_ok_data").textContent);
+      let num_nok = parseInt(document.getElementById(type[0] + "_nok_data").textContent);
+      console.log(num_total);
+      if (type[1] === 'ok') {
+        if (num_ok > 0) {
+            if (num_ok != 1) {
+                document.getElementById(type[0] + "_data").textContent = (num_total - 1);
+                document.getElementById(type[0] + "_ok_data").textContent = (num_ok - 1);
+                console.log(((num_ok - 1) / (num_total - 1)) * 100);
+                let numpercent_ok = parseFloat((((num_ok - 1) / (num_total - 1)) * 100).toFixed(2));
+                let numpercent_nok = 100 - numpercent_ok;
+                document.getElementById(type[0] + "_ok_datapercent").textContent = numpercent_ok + " %";
+                document.getElementById(type[0] + "_nok_datapercent").textContent = numpercent_nok + " %";
+            } else {
+                document.getElementById(type[0] + "_data").textContent = (num_total - 1);
+                document.getElementById(type[0] + "_ok_data").textContent = 0;
+                document.getElementById(type[0] + "_ok_datapercent").textContent = 0 + " %";
+                if (document.getElementById(type[0] + "_nok_data").textContent > 0) {
+                    document.getElementById(type[0] + "_nok_datapercent").textContent = "100 %";
+                }
+            }
+        }
+      } else {
+        if (num_nok > 0) {
+            if (num_nok != 1) {
+                document.getElementById(type[0] + "_data").textContent = (num_total - 1);
+                document.getElementById(type[0] + "_nok_data").textContent = (num_nok - 1);
+                console.log((num_nok - 1) / (num_total - 1));
+                let numpercent_nok = parseFloat((((num_nok - 1) / (num_total - 1)) * 100).toFixed(2));
+                let numpercent_ok = 100 - numpercent_nok;
+                document.getElementById(type[0] + "_ok_datapercent").textContent = numpercent_ok + " %";
+                document.getElementById(type[0] + "_nok_datapercent").textContent = numpercent_nok + " %";
+            } else {
+                document.getElementById(type[0] + "_data").textContent = (num_total - 1);
+                document.getElementById(type[0] + "_nok_data").textContent = 0;
+                document.getElementById(type[0] + "_nok_datapercent").textContent = 0 + " %";
+                if (document.getElementById(type[0] + "_ok_data").textContent > 0) {
+                    document.getElementById(type[0] + "_ok_datapercent").textContent = "100 %";
+                }
+            }
+        }
+      }
+    }
+    else if (num) {
+      document.getElementById(type.slice(0,-2).join('_') + "_data").textContent = num - 1;
     }
   });
 }
 
 function configurePlusButton(htmlElement) {
   let name = htmlElement.id;
-  let type = name.substring(0, name.length-8);
-  console.log(type);
+  let type = name.split("_");
   htmlElement.addEventListener("click", function(){
-    let data = document.getElementById("data_" + type).textContent;
+    console.log(type);
+    let data = document.getElementById(type.slice(0,-2).join('_') + "_data").textContent;
     let num = parseInt(data);
-    console.log("click plus", type);
-    document.getElementById("data_" + type).textContent = num + 1;
+    console.log("click plus", type.slice(0,-2).join('_'));
+    if (type[1] === 'ok' || type[1] === 'nok') {
+      let num_total = parseInt(document.getElementById(type[0] + "_data").textContent);
+      let num_ok = parseInt(document.getElementById(type[0] + "_ok_data").textContent);
+      let num_nok = parseInt(document.getElementById(type[0] + "_nok_data").textContent);
+      console.log(num_total);
+      document.getElementById(type[0] + "_data").textContent = (num_total + 1);
+      if (type[1] === 'ok') {
+        document.getElementById(type[0] + "_ok_data").textContent = (num_ok + 1);
+        let numpercent_ok = parseFloat((((num_ok + 1) / (num_total + 1)) * 100).toFixed(2));
+        let numpercent_nok = 100 - numpercent_ok;
+        console.log(type[0] + "_ok_datapercent");
+        document.getElementById(type[0] + "_ok_datapercent").textContent = numpercent_ok + " %";
+        document.getElementById(type[0] + "_nok_datapercent").textContent = numpercent_nok + " %";
+      }
+      else {
+        document.getElementById(type[0] + "_nok_data").textContent = (num_nok + 1);
+        let numpercent_nok = parseFloat((((num_nok + 1) / (num_total + 1)) * 100).toFixed(2));
+        let numpercent_ok = 100 - numpercent_nok;
+        document.getElementById(type[0] + "_ok_datapercent").textContent = numpercent_ok + " %";
+        document.getElementById(type[0] + "_nok_datapercent").textContent = numpercent_nok + " %";
+      }
+    }
+    else {
+      document.getElementById(type.slice(0,-2).join('_') + "_data").textContent = num + 1;
+    }
   });
 }
 
@@ -86,97 +155,3 @@ for (let htmlElement of document.getElementsByClassName('far fa-minus-square dat
 for (let htmlElement of document.getElementsByClassName('far fa-plus-square data_btn')) {
   configurePlusButton(htmlElement);
 }
-
-// Fonctionnement Tirs
-let shoot_on_target_btn_min = document.getElementById("shoot_on_target_btn_min");
-let shoot_on_target_btn_pls = document.getElementById("shoot_on_target_btn_pls");
-let shoot_miss_btn_min = document.getElementById("shoot_miss_btn_min");
-let shoot_miss_btn_pls = document.getElementById("shoot_miss_btn_pls");
-let num_shoot = parseInt(document.getElementById("data_shoot").textContent);
-let num_shoot_on_target = parseInt(document.getElementById("data_shoot_on_target").textContent);
-let num_miss_shoot = parseInt(document.getElementById("data_shoot_miss").textContent);
-// Partie Tirs cadrés
-shoot_on_target_btn_min.addEventListener("click", function () {
-    let num_shoot = parseInt(document.getElementById("data_shoot").textContent);
-    let num_shoot_on_target = parseInt(document.getElementById("data_shoot_on_target").textContent);
-    let num_miss_shoot = parseInt(document.getElementById("data_shoot_miss").textContent);
-    console.log("click plus S_o_T");
-    console.log(num_shoot);
-    if (num_shoot_on_target > 0) {
-        if (num_shoot_on_target != 1) {
-            document.getElementById("data_shoot").textContent = (num_shoot - 1);
-            document.getElementById("data_shoot_on_target").textContent = (num_shoot_on_target - 1);
-
-            console.log(((num_shoot_on_target - 1) / (num_shoot - 1)) * 100);
-            let numpercent_shoot = parseFloat((((num_shoot_on_target - 1) / (num_shoot - 1)) * 100).toFixed(2));
-            let numpercent_shoot_miss = 100 - numpercent_shoot;
-            document.getElementById("datapercent_shoot_on_target").textContent = numpercent_shoot + " %";
-            document.getElementById("datapercent_shoot_miss").textContent = numpercent_shoot_miss + " %";
-        } else {
-            document.getElementById("data_shoot").textContent = (num_shoot - 1);
-            document.getElementById("data_shoot_on_target").textContent = 0;
-            document.getElementById("datapercent_shoot_on_target").textContent = 0 + " %";
-            if (document.getElementById("data_shoot_miss").textContent > 0) {
-                document.getElementById("datapercent_shoot_miss").textContent = "100 %";
-            }
-        }
-    }
-});
-
-shoot_on_target_btn_pls.addEventListener("click", function () {
-    let num_shoot = parseInt(document.getElementById("data_shoot").textContent);
-    let num_shoot_on_target = parseInt(document.getElementById("data_shoot_on_target").textContent);
-    let num_miss_shoot = parseInt(document.getElementById("data_shoot_miss").textContent);
-    console.log("click plus S_o_T");
-    console.log(num_shoot);
-    document.getElementById("data_shoot").textContent = (num_shoot + 1);
-    document.getElementById("data_shoot_on_target").textContent = (num_shoot_on_target + 1);
-
-    let numpercent_shoot = parseFloat((((num_shoot_on_target + 1) / (num_shoot + 1)) * 100).toFixed(2));
-    let numpercent_shoot_miss = 100 - numpercent_shoot;
-    document.getElementById("datapercent_shoot_on_target").textContent = numpercent_shoot + " %";
-    document.getElementById("datapercent_shoot_miss").textContent = numpercent_shoot_miss + " %";
-});
-// Partie Tirs non cadrés
-shoot_miss_btn_min.addEventListener("click", function () {
-    let num_shoot = parseInt(document.getElementById("data_shoot").textContent);
-    let num_shoot_on_target = parseInt(document.getElementById("data_shoot_on_target").textContent);
-    let num_miss_shoot = parseInt(document.getElementById("data_shoot_miss").textContent);
-    console.log("click moins Miss_Shot");
-    console.log(num_shoot);
-
-    if (num_miss_shoot > 0) {
-        if (num_miss_shoot != 1) {
-            document.getElementById("data_shoot").textContent = (num_shoot - 1);
-            document.getElementById("data_shoot_miss").textContent = (num_miss_shoot - 1);
-
-            console.log((num_miss_shoot - 1) / (num_shoot - 1));
-            let numpercent_miss_shoot = parseFloat((((num_miss_shoot - 1) / (num_shoot - 1)) * 100).toFixed(2));
-            let numpercent_shoot = 100 - numpercent_miss_shoot;
-            document.getElementById("datapercent_shoot_on_target").textContent = numpercent_shoot + " %";
-            document.getElementById("datapercent_shoot_miss").textContent = numpercent_miss_shoot + " %";
-        } else {
-            document.getElementById("data_shoot").textContent = (num_shoot - 1);
-            document.getElementById("data_shoot_miss").textContent = 0;
-            document.getElementById("datapercent_shoot_miss").textContent = 0 + " %";
-            if (document.getElementById("data_shoot_on_target").textContent > 0) {
-                document.getElementById("datapercent_shoot_on_target").textContent = "100 %";
-            }
-        }
-    }
-});
-
-shoot_miss_btn_pls.addEventListener("click", function () {
-    let num_shoot = parseInt(document.getElementById("data_shoot").textContent);
-    let num_shoot_on_target = parseInt(document.getElementById("data_shoot_on_target").textContent);
-    let num_miss_shoot = parseInt(document.getElementById("data_shoot_miss").textContent);
-    console.log("click plus Miss_Shot");
-    console.log(num_shoot);
-    document.getElementById("data_shoot").textContent = (num_shoot + 1);
-    document.getElementById("data_shoot_miss").textContent = (num_miss_shoot + 1);
-
-    let numpercent_miss_shoot = parseFloat((((num_miss_shoot + 1) / (num_shoot + 1)) * 100).toFixed(2));
-    let numpercent_shoot = 100 - numpercent_miss_shoot;
-    document.getElementById("datapercent_shoot_on_target").textContent = numpercent_shoot + " %";
-    document.getElementById("datapercent_shoot_miss").textContent = numpercent_miss_shoot + " %";
-});
