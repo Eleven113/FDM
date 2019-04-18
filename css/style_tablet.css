@@ -1,0 +1,36 @@
+body{
+    background-color: white;
+    font-size: 1vh;
+}
+
+#blocpage{
+    height: 100vh;
+}
+
+.data_case {
+    width: 60%;
+}
+
+.logo_team {
+    width: 100px;
+    height: 100px;
+}
+
+.data_btn{
+    color: black;
+    font : 2.2vh bold;
+}
+
+.data_txt{
+    font: 1.8vh bold;
+}
+
+.title_flex{
+    background: #F37022;
+    color :black;
+}
+
+.data_flex{
+    background: white;
+    color : black;
+}
