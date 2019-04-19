@@ -56,8 +56,16 @@
 }
 
 .score{
-    font-size: 5em;
+    font-size: 3em;
     text-align: center;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#score_home, #score_away{
+    font-size: 1.5em;
 }
 
 .minus{
@@ -71,4 +79,8 @@
 #chrono{
     height: 30px;
     width: 100%;
+}
+
+#duel{
+    display: none;
 }

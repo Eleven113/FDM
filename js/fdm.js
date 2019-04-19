@@ -8,17 +8,17 @@ button.addEventListener("click", function () {
     formulaire.style.display = "none";
     container.style.display = "flex";
 
-    let logoTeamHome = document.getElementById("logo_team_home");
-    let nameTeamHome = document.getElementById("name_team_home");
-    let logoTeamAway = document.getElementById("logo_team_away");
-    let nameTeamAway = document.getElementById("name_team_away");
+    let logoTeamHome = document.getElementById("home_logo_team");
+    let nameTeamHome = document.getElementById("home_name_team");
+    let logoTeamAway = document.getElementById("away_logo_team");
+    let nameTeamAway = document.getElementById("away_name_team");
 
     let lieu = document.querySelector('input[name=lieu]:checked').value;
     let teamAdv = document.getElementById("adv").value;
 
     if (lieu === "home") {
         // Attribution du nom de l'équipe dans la div
-        nameTeamHome.textContent = "Stade Lavallois";
+        nameTeamHome.textContent = "Stade Lavallois"; // A changer dans la fonction scoreButton si modifié
         nameTeamAway.textContent = teamAdv;
         // Création Image Logo Domicile
         let logoHome = document.createElement("img");
@@ -154,4 +154,36 @@ for (let htmlElement of document.getElementsByClassName('far fa-minus-square dat
 }
 for (let htmlElement of document.getElementsByClassName('far fa-plus-square data_btn')) {
   configurePlusButton(htmlElement);
+}
+
+// Fonctionnement Score
+function scoreButton(htmlElement){
+    let name = htmlElement.id;
+    let type = name.split("_");
+    htmlElement.addEventListener("click", function(){
+        console.log(type);
+        let score = parseInt(document.getElementById(type[0] + "_score").textContent);
+        if ( document.getElementById(type[0] + "_name_team").textContent === "Stade Lavallois" && type[3] === "pls"){
+            let goal_name = prompt("Qui a marqué ?");
+            if (goal_name != null){
+                // ajout du nom sur la page
+            }
+            else {
+                return;
+            }
+        }
+        if (type[3] === "pls") {
+
+            document.getElementById(type[0] + "_score").textContent = (score + 1);           
+        }
+        else {
+            if (score > 0){
+                document.getElementById(type[0] + "_score").textContent = (score - 1);
+            }
+        }
+    });
+}
+
+for (let htmlElement of document.getElementsByClassName("score_btn")) {
+  scoreButton(htmlElement);
 }
