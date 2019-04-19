@@ -23,13 +23,13 @@ button.addEventListener("click", function () {
         // Création Image Logo Domicile
         let logoHome = document.createElement("img");
         logoHome.alt = "Logo Stade Lavallois"
-        logoHome.src = "../image/logo_sl.jpg"
+        logoHome.src = "image/logo_sl.jpg"
         logoHome.className = "logo_team";
         logoTeamHome.append(logoHome);
         // Création Image Logo Extérieur
         let logoAway = document.createElement("img");
         logoAway.alt = "Logo Adversaire"
-        logoAway.src = "../image/logo_adv.png"
+        logoAway.src = "image/logo_adv.png"
         logoAway.className = "logo_team";
         logoTeamAway.append(logoAway);
     } else {
@@ -39,13 +39,13 @@ button.addEventListener("click", function () {
         // Création Image Logo Domicile
         let logoHome = document.createElement("img");
         logoHome.alt = "Logo Adversaire"
-        logoHome.src = "../image/logo_adv.png"
+        logoHome.src = "image/logo_adv.png"
         logoHome.className = "logo_team";
         logoTeamHome.append(logoHome);
         // Création Image Logo Extérieur
         let logoAway = document.createElement("img");
         logoAway.alt = "Logo Stade Lavallois"
-        logoAway.src = "../image/logo_sl.jpg"
+        logoAway.src = "image/logo_sl.jpg"
         logoAway.className = "logo_team";
         logoTeamAway.append(logoAway);
     };

@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" media="screen and (max-width: 1024px) and (min-width: 414px)" href="../css/style_tablet.css" />
-    <link rel="stylesheet" media="screen and (max-width: 414px)" href="../css/style_mobile.css" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 1024px) and (min-width: 414px)" href="css/style_tablet.css" />
+    <link rel="stylesheet" media="screen and (max-width: 414px)" href="css/style_mobile.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Feuille de match</title>
 </head>
@@ -47,7 +48,9 @@
         </div>
         <!-- Les nouveaux éléments sont ajoutés dans cette balise -->
         <div id="container">
-            <div id="team">
+            <header>
+                <div id="left_header"></div>
+                <div id="team">
                 <div id="home_team">
                     <div id="home_logo_team"></div>
                     <div id="home_name_team" class="team_name"></div>
@@ -60,6 +63,8 @@
                     <div id="away_score_team" class="score"><i class="far fa-minus-square score_btn" id="away_score_btn_min"></i><span id="away_score">0</span><i class="far fa-plus-square score_btn" id="away_score_btn_pls"></i></div>
                 </div>
             </div>
+                <div id="right_header"></div>
+            </header>    
             <div id="chrono" class="border">
             </div>
             <div id="data">
@@ -110,7 +115,7 @@
             </div>
         </div>
     </div>
-    <script src="../js/fdm.js"></script>
+    <script src="js/fdm.js"></script>
 </body>
 
 </html>

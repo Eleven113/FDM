@@ -1,3 +1,5 @@
+
+
 #container {
     display: none;
     flex-direction: column;
@@ -83,4 +85,15 @@
 
 #duel{
     display: none;
+}
+
+#left_header,#right_header{
+    width:25%;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
 }
