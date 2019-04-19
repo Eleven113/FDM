@@ -7,9 +7,6 @@ body{
     height: 100vh;
 }
 
-.data_case {
-    width: 60%;
-}
 
 .logo_team {
     width: 100px;
@@ -33,4 +30,8 @@ body{
 .data_flex{
     background: white;
     color : black;
+}
+
+.flex_glob{
+    width: 60%;
 }

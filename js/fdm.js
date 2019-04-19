@@ -1,4 +1,3 @@
-let divElt = document.createElement("div");
 let formulaire = document.getElementById("formulaire");
 let button = document.getElementById("button");
 let container = document.getElementById("container");
@@ -191,3 +190,4 @@ function scoreButton(htmlElement){
 for (let htmlElement of document.getElementsByClassName("score_btn")) {
   scoreButton(htmlElement);
 }
+

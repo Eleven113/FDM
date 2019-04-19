@@ -73,22 +73,31 @@
                 <div id="right_header"></div>
             </header>    
             <div id="data">
+<!--                Tirs-->
                 <div id="shoot" class="data_case">
                     <div class="title_flex"><span></span><span  class="data_txt">Tirs</span><span></span></div>
                     <div class="data_flex"><span id="shoot_data">0</span></div>
+                </div>à
+<!--                Tirs Cadrés-->
+                <div class="flex_glob">
+                    <div class="button"><i class="far fa-minus-square data_btn" id="shoot_ok_btn_min"></i></div>
+                    <div id="shoot_ok" class="data_case">
+                        <div id="shoot_ok_title" class="title_flex"><span class="data_txt">Tirs cadrés</span></div>
+                        <div class="data_flex"><span id="shoot_ok_data">0</span>&nbsp;-&nbsp;<span id="shoot_ok_datapercent">0%</span></div>
+                    </div>
+                    <div class="button"><i class="far fa-plus-square data_btn" id="shoot_ok_btn_pls"></i></div>
                 </div>
-                <div id="shoot_ok" class="data_case">
-                    <div id="shoot_ok_title" class="title_flex"><i class="far fa-minus-square data_btn" id="shoot_ok_btn_min"></i><span class="data_txt">Tirs cadrés</span><i class="far fa-plus-square data_btn" id="shoot_ok_btn_pls"></i></div>
-                    <div class="data_flex"><span id="shoot_ok_data">0</span>&nbsp;-&nbsp;<span id="shoot_ok_datapercent">0%</span></div>
-                </div>
+<!--                Tirs non cadrés-->
                 <div id="shoot_nok" class="data_case">
                     <div id="shoot_nok_title" class="title_flex"><i class="far fa-minus-square data_btn" id="shoot_nok_btn_min"></i><span class="data_txt">Tirs non cadrés</span><i class="far fa-plus-square data_btn" id="shoot_nok_btn_pls"></i></div>
                     <div class="data_flex"><span id="shoot_nok_data">0</span>&nbsp;-&nbsp;<span id="shoot_nok_datapercent">0%</span></div>
                 </div>
+<!--                Passes-->
                 <div id="pass" class="data_case">
                     <div id="pass_title" class="title_flex"><span></span><span class="data_txt">Passes</span><span></span></div>
                     <div class="data_flex"><span id="pass_data">0</span></div>
                 </div>
+<!--                Passes réussies-->
                 <div id="pass_ok" class="data_case">
                     <div id="pass_ok_title" class="title_flex"><i class="far fa-minus-square data_btn" id="pass_ok_btn_min"></i><span class="data_txt">Passes réussies</span><i class="far fa-plus-square data_btn" id="pass_ok_btn_pls"></i></div>
                     <div class="data_flex"><span id="pass_ok_data">0</span>&nbsp;-&nbsp;<span id="pass_ok_datapercent">0%</span></div>
@@ -121,6 +130,7 @@
         </div>
     </div>
     <script src="js/fdm.js"></script>
+    <script src="js/data.js"></script>
 </body>
 
 </html>

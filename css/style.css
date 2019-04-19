@@ -23,7 +23,7 @@
 .title_flex {
     border: 1px solid black;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .data_flex {
@@ -33,7 +33,7 @@
 }
 
 .data_case {
-    width: 35%;
+    width: 70%;
     font-size: 2em;
 }
 
@@ -103,4 +103,20 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.flex_glob{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 35%;
+}
+
+.button{
+    width:15%;
+    border : 1px solid black;
+    font-size: 2.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
