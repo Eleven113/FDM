@@ -169,7 +169,7 @@ function scoreButton(htmlElement){
         if ( document.getElementById(type[0] + "_name_team").textContent === "Stade Lavallois" && type[3] === "pls"){
             let goal_name = prompt("Qui a marqué ?");
             if (goal_name != null){
-                // ajout du nom sur la page
+                // ajout du nom sur la page 
             }
             else {
                 return;
