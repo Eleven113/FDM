@@ -62,7 +62,7 @@
     text-align: center;
     display : flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -78,17 +78,14 @@
     justify-content: flex-end;
 }
 
-#chrono{
-    height: 30px;
-    width: 100%;
-}
 
 #duel{
     display: none;
 }
 
-#left_header,#right_header{
+#chrono,#scorer{
     width:25%;
+    border : 1px solid black
 }
 
 header{
@@ -96,4 +93,14 @@ header{
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
+}
+
+#home_team,#away_team{
+    width:45%;
+}
+
+#home_logo_team,#away_logo_team{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

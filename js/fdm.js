@@ -32,6 +32,8 @@ button.addEventListener("click", function () {
         logoAway.src = "image/logo_adv.png"
         logoAway.className = "logo_team";
         logoTeamAway.append(logoAway);
+        document.getElementById("left_header").id = "scorer";
+        document.getElementById("right_header").id = "chrono";
     } else {
         // Attribution du nom de l'équipe dans la div
         nameTeamHome.textContent = teamAdv;
@@ -48,6 +50,8 @@ button.addEventListener("click", function () {
         logoAway.src = "image/logo_sl.jpg"
         logoAway.className = "logo_team";
         logoTeamAway.append(logoAway);
+        document.getElementById("left_header").id = "chrono";
+        document.getElementById("right_header").id = "scorer";
     };
 });
 
