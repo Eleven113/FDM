@@ -60,15 +60,41 @@ let dataItems = [
     }
 ]
 
+let divData = document.getElementById("data");
+divData.innerHTML = "";
 
 function createDataItems(dataItem){
+    console.log("et encore en ligne");
+    console.log(dataItem.model);
     let divData = document.getElementById("data");
-    let divItems = document.
+    let divItems = document.createElement("div");
+    divItems.className = "flex_glob";
     switch (dataItem.model){
-        case "0":
+        case 0:
+            divItems.innerHTML = '<div class="button"></div><div id="' + dataItem.name_css + '" class="data_case"><div id="' + dataItem.name_css + '_title" class="title_flex"><span class="data_txt">' + dataItem.name + '</span></div><div class="data_flex"><span id="'+ dataItem.name_css +'_data">0</span></div></div><div class="button"></div>';
+            divData.append(divItems);
+            break;
             
+        case 1:
+            divItems.innerHTML = '<div class="button"><i class="far fa-minus-square data_btn" id="' + dataItem.name_css + '_btn_min"></i></div><div id="' + dataItem.name_css + '" class="data_case"><div id="' + dataItem.name_css + '+_title" class="title_flex"><span class="data_txt">' + dataItem.name + '</span></div><div class="data_flex"><span id="' + dataItem.name_css + '_data">0</span></div></div><div class="button"><i class="far fa-plus-square data_btn" id="' + dataItem.name_css + '_btn_pls"></i></div>'
+            divData.append(divItems);
+            break;
+            
+        case 2:
+            divItems.innerHTML = '<div class="button"><i class="far fa-minus-square data_btn" id="' + dataItem.name_css + '_btn_min"></i></div><div id="' + dataItem.name_css + '" class="data_case"><div id="' + dataItem.name_css + '_title" class="title_flex"><span class="data_txt">' + dataItem.name + '</span></div><div class="data_flex"><span id="' + dataItem.name_css + '_data">0</span>&nbsp;-&nbsp;<span id="' + dataItem.name_css + '_datapercent">0%</span></div></div><div class="button"><i class="far fa-plus-square data_btn" id="' + dataItem.name_css + '_btn_pls"></i></div>'
+            divData.append(divItems);
+            break; 
     }
 }
+
+
+for (let i = 0; i < dataItems.length ; i++){
+    createDataItems(dataItems[i]);
+}
+
+//for (let dataItem of dataItems ) {
+//    createDataItems(dataItem);
+//}
 
 
 
