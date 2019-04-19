@@ -52,6 +52,7 @@ button.addEventListener("click", function () {
         document.getElementById("left_header").id = "chrono";
         document.getElementById("right_header").id = "scorer";
     };
+    document.getElementById('chrono').innerHTML = "<span id='timer-mins'>00</span>:<span id='timer-secs'>00</span>";
 });
 
 
@@ -177,7 +178,7 @@ function scoreButton(htmlElement){
         }
         if (type[3] === "pls") {
 
-            document.getElementById(type[0] + "_score").textContent = (score + 1);           
+            document.getElementById(type[0] + "_score").textContent = (score + 1);
         }
         else {
             if (score > 0){
@@ -191,3 +192,34 @@ for (let htmlElement of document.getElementsByClassName("score_btn")) {
   scoreButton(htmlElement);
 }
 
+// Timer
+
+function Timer() {
+  this.htmlElement = document.getElementById('chrono');
+  this.time = 0;
+  this.periode = 1;
+  this.timer = function () {};
+  this.start = function () {
+    this.timer = setInterval(() => {
+      this.time = this.time + 1;
+      let mins = Math.floor(this.time/60);
+      if (mins.toString().length === 1) { mins = "0" + mins.toString() }
+      let secs = this.time%60;
+      if (secs.toString().length === 1) { secs = "0" + secs.toString() }
+      document.getElementById("timer-mins").textContent = mins;
+      document.getElementById("timer-secs").textContent = secs;
+    }, 1000);
+  };
+  this.pause = function() {
+    clearInterval(this.timer);
+  }
+  this.next = function() {
+    if (this.time === 0) return;
+    this.periode= this.periode + 1;
+    this.time = 0;
+    document.getElementById("timer-mins").textContent = "00";
+    document.getElementById("timer-secs").textContent = "00";
+  }
+}
+
+let timer = new Timer();
