@@ -265,8 +265,9 @@ function Timer() {
   this.pause = function() {
     clearInterval(this.timer);
   }
-  this.next = function() { // Ajouter confirmation changement de période
+  this.next = function() {
     if (this.time === 0) return;
+    window.confirm("Etes-vous sûr de vouloir passer à la période suivante ?");
     this.periode= this.periode + 1;
     this.pause();
     this.time = 0;
