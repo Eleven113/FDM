@@ -73,19 +73,19 @@ button.addEventListener("click", function () {
     div_timer_btn.id = "timer_btn";
     div_timer_btn.innerHTML = '<i class="fas fa-play" id="play_btn"></i><i class="fas fa-pause" id="pause_btn"></i><i class="fas fa-step-forward" id="step_fwd_btn"></i>';
     chrono.append(div_timer_btn);
-    
+
     let play_btn = document.getElementById("play_btn");
     let pause_btn = document.getElementById("pause_btn");
     let step_fwd_btn = document.getElementById("step_fwd_btn");
-    
+
     play_btn.addEventListener("click",function(){
         timer.start();
     });
-    
+
     pause_btn.addEventListener("click",function(){
         timer.pause();
     });
-    
+
     step_fwd_btn.addEventListener("click",function(){
         timer.next();
     });
@@ -204,9 +204,23 @@ function scoreButton(htmlElement){
         console.log(type);
         let score = parseInt(document.getElementById(type[0] + "_score").textContent);
         if ( document.getElementById(type[0] + "_name_team").textContent === "Stade Lavallois" && type[3] === "pls"){
+            let t = timer.time;
+            let t_cumul, t_add;
             let goal_name = prompt("Qui a marqué ?");
             if (goal_name != null){
-                // ajout du nom sur la page
+              // calcul du temps
+              let goal_time;
+              if (t > timer.tps_periode * 60) {
+                t_cumul = timer.periode * timer.tps_periode;
+                t_add = 1 + Math.floor((t - timer.tps_periode * 60)/60);
+                goal_time = t_cumul.toString() + ' +' + t_add.toString();
+              }
+              else {
+                t_cumul = 1 + Math.floor(t/60) + (timer.periode - 1) * timer.tps_periode;
+                goal_time = t_cumul.toString();
+              }
+              // ajout du nom sur la page
+              document.getElementById('scorer').innerHTML += "<p>" + goal_name + " " + goal_time + "</p>";
             }
             else {
                 return;
@@ -251,9 +265,11 @@ function Timer() {
   this.pause = function() {
     clearInterval(this.timer);
   }
-  this.next = function() { // Ajouter confirmation changement de période
+  this.next = function() {
     if (this.time === 0) return;
+    window.confirm("Etes-vous sûr de vouloir passer à la période suivante ?");
     this.periode= this.periode + 1;
+    this.pause();
     this.time = 0;
     document.getElementById('num-periode').textContent = this.periode + 'ème période';
     document.getElementById("timer-mins").textContent = "00";
