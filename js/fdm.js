@@ -192,6 +192,7 @@ function scoreButton(htmlElement){
             let goal_name = prompt("Qui a marqué ?");
             if (goal_name != null){
                 // ajout du nom sur la page
+                document.getElementById('scorer').innerHTML += ""
             }
             else {
                 return;
