@@ -2,9 +2,6 @@ let formulaire = document.getElementById("formulaire");
 let button = document.getElementById("button");
 let container = document.getElementById("container");
 
-let nb_periode = 1;
-let tps_periode = 0;
-
 button.addEventListener("click", function () {
     // Lors du clic le formulaire disparait, et la feuille de stats apparait
     formulaire.style.display = "none";
@@ -19,9 +16,8 @@ button.addEventListener("click", function () {
     let teamAdv = document.getElementById("adv").value;
 
     // Récupération données périodes
-    nb_periode = document.getElementById('nb_periode').options[document.getElementById('nb_periode').selectedIndex].value;
-    tps_periode = document.getElementById('tps_periode').value;
-    console.log(nb_periode,tps_periode);
+    timer.nb_periode = document.getElementById('nb_periode').options[document.getElementById('nb_periode').selectedIndex].value;
+    timer.tps_periode = document.getElementById('tps_periode').value;
 
     if (lieu === "home") {
         // Attribution du nom de l'équipe dans la div
@@ -223,6 +219,8 @@ function Timer() {
   this.htmlElement = document.getElementById('chrono');
   this.time = 0;
   this.periode = 1;
+  this.nb_periode = 1;
+  this.tps_periode = 0;
   this.timer = function () {};
   this.start = function () {
     this.timer = setInterval(() => {
@@ -242,6 +240,7 @@ function Timer() {
     if (this.time === 0) return;
     this.periode= this.periode + 1;
     this.time = 0;
+    document.getElementById('num-periode').textContent =
     document.getElementById("timer-mins").textContent = "00";
     document.getElementById("timer-secs").textContent = "00";
   }
