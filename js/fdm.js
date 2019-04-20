@@ -239,6 +239,7 @@ function Timer() {
   this.next = function() { // Ajouter confirmation changement de période
     if (this.time === 0) return;
     this.periode= this.periode + 1;
+    this.pause();
     this.time = 0;
     document.getElementById('num-periode').textContent = this.periode + 'ème période';
     document.getElementById("timer-mins").textContent = "00";
