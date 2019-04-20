@@ -40,7 +40,7 @@ button.addEventListener("click", function () {
         // positionnement div Scorer
         document.getElementById("scorer").style.position = "absolute";
         document.getElementById("scorer").style.top = "2%";
-        document.getElementById("scorer").style.left = 0;
+        document.getElementById("scorer").style.left = "10px";
         // positionnement div team
         document.getElementById("team").style.position = "absolute";
         document.getElementById("team").style.left = "25%";
@@ -70,13 +70,13 @@ button.addEventListener("click", function () {
         // positionnement div Scorer
         document.getElementById("chrono").style.position = "absolute";
         document.getElementById("chrono").style.top = "2%";
-        document.getElementById("chrono").style.left = 0;
+        document.getElementById("chrono").style.left = "10px";
         // positionnement div team
         document.getElementById("team").style.position = "absolute";
         document.getElementById("team").style.left = "25%";
         // positionnement div chrono
         document.getElementById("scorer").style.position = "absolute";
-        document.getElementById("scorer").style.left = "75%";
+        document.getElementById("scorer").style.left = "80%";
         document.getElementById("scorer").style.top = "2%";
         
     };
@@ -274,7 +274,7 @@ document.getElementById('goal_input').addEventListener("click", function() {
       goal_time = t_cumul.toString();
     }
     // ajout du nom sur la page
-    document.getElementById('scorer').innerHTML += '<div class="scorer_list"><div class="score_ico_name"><i class="fas fa-futbol"></i><span class="scorer_name_time">' + ' ' + goal_name + ' ' + goal_time + "'" +'</span></div><i class="fas fa-times"></i></div>';
+    document.getElementById('scorer').innerHTML += '<div class="scorer_list"><div class="score_ico_name"><i class="fas fa-futbol"></i><span class="scorer_name_time">' + ' ' + goal_name + ' ' + goal_time + "'" +'</span></div><span class="score_close"><i class="fas fa-times"></i></span></div>';
   }
   else {
       return;
@@ -326,3 +326,4 @@ let timer = new Timer();
 //Cacher Div Duel
 let divDuelGlob = document.getElementById("duel").parentNode;
 divDuelGlob.style.display = "none";
+
