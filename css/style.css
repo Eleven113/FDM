@@ -186,7 +186,7 @@ header {
     left: 28.3%;
     top: 6%;
     width: 40%;
-    height: 13%;
+    height: 16%;
     background: rgba(0, 0, 0, 0.85);
     font-size: 2em;
     color: #F37022;
@@ -213,6 +213,6 @@ header {
     color : darkslategrey;
 }
 
-.score_close{
+.scorer_close{
     color : red;
 }

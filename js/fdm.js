@@ -274,7 +274,22 @@ document.getElementById('goal_input').addEventListener("click", function() {
       goal_time = t_cumul.toString();
     }
     // ajout du nom sur la page
-    document.getElementById('scorer').innerHTML += '<div class="scorer_list"><div class="score_ico_name"><i class="fas fa-futbol"></i><span class="scorer_name_time">' + ' ' + goal_name + ' ' + goal_time + "'" +'</span></div><span class="score_close"><i class="fas fa-times"></i></span></div>';
+    let scorer = document.getElementById("scorer");
+    let spanScorerList = document.createElement("div");
+    spanScorerList.className = "scorer_list";
+    spanScorerList.innerHTML = '<div class="score_ico_name"><i class="fas fa-futbol"></i><span class="scorer_name_time">' + ' ' + goal_name + ' ' + goal_time + "'" +'</span></div>'
+    let spanScorerClose = document.createElement("span");
+    spanScorerClose.className = "scorer_close";
+    spanScorerClose.innerHTML = '<i class="fas fa-times"></i>';
+    spanScorerList.append(spanScorerClose);
+    scorer.append(spanScorerList);
+    let header = document.getElementById("head_team");
+    header.prepend(scorer);
+      
+    spanScorerClose.addEventListener("click",function(){
+       spanScorerClose.parentElement.remove();
+        console.log("prout");
+    });
   }
   else {
       return;
@@ -326,4 +341,8 @@ let timer = new Timer();
 //Cacher Div Duel
 let divDuelGlob = document.getElementById("duel").parentNode;
 divDuelGlob.style.display = "none";
+
+//Effacer buteur
+let scorerClose = document.getElementsByClassName("scorer_close");
+
 
