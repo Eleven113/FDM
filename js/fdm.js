@@ -53,9 +53,20 @@ button.addEventListener("click", function () {
         document.getElementById("left_header").id = "chrono";
         document.getElementById("right_header").id = "scorer";
         // Récupération données périodes
-        
+
     };
-    document.getElementById('chrono').innerHTML = "<span id='periode'>1ère période</span><br/><span id='timer-mins'>00</span>:<span id='timer-secs'>00</span>";
+    let chrono = document.getElementById("chrono");
+
+    let div_timer = document.createElement("div");
+    div_timer.id = "timer";
+    div_timer.innerHTML = '<span id="timer-mins">00</span>:<span id="timer-secs">00</span>';
+    chrono.append(div_timer);
+
+    let div_timer_btn = document.createElement("div");
+    div_timer_btn.id = "timer_btn";
+    div_timer_btn.innerHTML = '<i class="fas fa-play"></i><i class="fas fa-pause"></i><i class="fas fa-step-forward"></i>';
+    chrono.append(div_timer_btn);
+
 });
 
 
