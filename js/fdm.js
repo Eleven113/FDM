@@ -227,27 +227,6 @@ function scoreButton(htmlElement){
         console.log(type);
         let score = parseInt(document.getElementById(type[0] + "_score").textContent);
         if ( document.getElementById(type[0] + "_name_team").textContent === "Stade Lavallois" && type[3] === "pls"){
-            let t = timer.time;
-            let t_cumul, t_add;
-            let goal_name = prompt("Qui a marqué ?");
-            if (goal_name != null){
-              // calcul du temps
-              let goal_time;
-              if (t > timer.tps_periode * 60) {
-                t_cumul = timer.periode * timer.tps_periode;
-                t_add = 1 + Math.floor((t - timer.tps_periode * 60)/60);
-                goal_time = t_cumul.toString() + ' +' + t_add.toString();
-              }
-              else {
-                t_cumul = 1 + Math.floor(t/60) + (timer.periode - 1) * timer.tps_periode;
-                goal_time = t_cumul.toString();
-              }
-              // ajout du nom sur la page
-              document.getElementById('scorer').innerHTML += '<div class="scorer_list"><div class="score_ico_name"><i class="fas fa-futbol"></i><span class="scorer_name_time">' + ' ' + goal_name + ' ' + goal_time + "'" +'</span></div><i class="fas fa-times"></i></div>';
-            }
-            else {
-                return;
-            }
             modal.style.display = "block";
         }
         if (type[3] === "pls") {
@@ -295,7 +274,7 @@ document.getElementById('goal_input').addEventListener("click", function() {
       goal_time = t_cumul.toString();
     }
     // ajout du nom sur la page
-    document.getElementById('scorer').innerHTML += "<p>" + goal_name + " " + goal_time + "</p>";
+    document.getElementById('scorer').innerHTML += '<div class="scorer_list"><div class="score_ico_name"><i class="fas fa-futbol"></i><span class="scorer_name_time">' + ' ' + goal_name + ' ' + goal_time + "'" +'</span></div><i class="fas fa-times"></i></div>';
   }
   else {
       return;
