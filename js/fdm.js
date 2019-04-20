@@ -74,6 +74,21 @@ button.addEventListener("click", function () {
     div_timer_btn.innerHTML = '<i class="fas fa-play" id="play_btn"></i><i class="fas fa-pause" id="pause_btn"></i><i class="fas fa-step-forward" id="step_fwd_btn"></i>';
     chrono.append(div_timer_btn);
 
+    let play_btn = document.getElementById("play_btn");
+    let pause_btn = document.getElementById("pause_btn");
+    let step_fwd_btn = document.getElementById("step_fwd_btn");
+
+    play_btn.addEventListener("click",function(){
+        timer.start();
+    });
+
+    pause_btn.addEventListener("click",function(){
+        timer.pause();
+    });
+
+    step_fwd_btn.addEventListener("click",function(){
+        timer.next();
+    });
 });
 
 
@@ -249,7 +264,13 @@ function Timer() {
 }
 
 let timer = new Timer();
+
+
+//Cacher Div Duel
+let divDuelGlob = document.getElementById("duel").parentNode;
+divDuelGlob.style.display = "none";
+
 let play_btn = document.getElementById("play_btn");
 let pause_btn = document.getElementById("pause_btn");
 let step_fwd_btn = document.getElementById("step_fwd");
-console.log(play_btn);
+console.log("chelou",play_btn);

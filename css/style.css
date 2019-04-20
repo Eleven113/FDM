@@ -165,3 +165,7 @@ header{
     justify-content: space-around;
     margin-top: 5px;
 }
+
+#periode{
+    font-size: 2em;
+}
