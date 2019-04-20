@@ -49,21 +49,24 @@ button.addEventListener("click", function () {
         logoAway.src = "image/logo_sl.jpg"
         logoAway.className = "logo_team";
         logoTeamAway.append(logoAway);
+        // Affectation cadres Buteurs et Temps
         document.getElementById("left_header").id = "chrono";
         document.getElementById("right_header").id = "scorer";
+        // Récupération données périodes
+
     };
     let chrono = document.getElementById("chrono");
-    
+
     let div_timer = document.createElement("div");
     div_timer.id = "timer";
     div_timer.innerHTML = '<span id="timer-mins">00</span>:<span id="timer-secs">00</span>';
     chrono.append(div_timer);
-    
+
     let div_timer_btn = document.createElement("div");
     div_timer_btn.id = "timer_btn";
     div_timer_btn.innerHTML = '<i class="fas fa-play" id="play_btn"></i><i class="fas fa-pause" id="pause_btn"></i><i class="fas fa-step-forward" id="step_fwd_btn"></i>';
     chrono.append(div_timer_btn);
-    
+
 });
 
 
@@ -181,7 +184,7 @@ function scoreButton(htmlElement){
         if ( document.getElementById(type[0] + "_name_team").textContent === "Stade Lavallois" && type[3] === "pls"){
             let goal_name = prompt("Qui a marqué ?");
             if (goal_name != null){
-                // ajout du nom sur la page 
+                // ajout du nom sur la page
             }
             else {
                 return;
