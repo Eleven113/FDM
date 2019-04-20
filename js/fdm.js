@@ -57,6 +57,11 @@ button.addEventListener("click", function () {
     };
     let chrono = document.getElementById("chrono");
 
+    let div_periode = document.createElement("div");
+    div_periode.id = "periode";
+    div_periode.innerHTML = '<span id="num-periode">1ère période</span>';
+    chrono.append(div_periode);
+
     let div_timer = document.createElement("div");
     div_timer.id = "timer";
     div_timer.innerHTML = '<span id="timer-mins">00</span>:<span id="timer-secs">00</span>';
