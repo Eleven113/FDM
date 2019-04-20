@@ -2,6 +2,9 @@ let formulaire = document.getElementById("formulaire");
 let button = document.getElementById("button");
 let container = document.getElementById("container");
 
+let nb_periode = 1;
+let tps_periode = 0;
+
 button.addEventListener("click", function () {
     // Lors du clic le formulaire disparait, et la feuille de stats apparait
     formulaire.style.display = "none";
@@ -14,6 +17,11 @@ button.addEventListener("click", function () {
 
     let lieu = document.querySelector('input[name=lieu]:checked').value;
     let teamAdv = document.getElementById("adv").value;
+
+    // Récupération données périodes
+    nb_periode = document.getElementById('nb_periode').options[document.getElementById('nb_periode').selectedIndex].value;
+    tps_periode = document.getElementById('tps_periode').value;
+    console.log(nb_periode,tps_periode);
 
     if (lieu === "home") {
         // Attribution du nom de l'équipe dans la div
@@ -52,8 +60,6 @@ button.addEventListener("click", function () {
         // Affectation cadres Buteurs et Temps
         document.getElementById("left_header").id = "chrono";
         document.getElementById("right_header").id = "scorer";
-        // Récupération données périodes
-
     };
     let chrono = document.getElementById("chrono");
 
