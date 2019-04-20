@@ -248,9 +248,11 @@ function scoreButton(htmlElement){
             else {
                 return;
             }
+=======
+            modal.style.display = "block";
+>>>>>>> fc951af2e373ff8998f0c513e265963a43a0cede
         }
         if (type[3] === "pls") {
-
             document.getElementById(type[0] + "_score").textContent = (score + 1);
         }
         else {
@@ -265,6 +267,43 @@ for (let htmlElement of document.getElementsByClassName("score_btn")) {
   scoreButton(htmlElement);
 }
 
+// Modal pour saisir le nom du buteur
+let modal = document.getElementById('myModal');
+let modal_span = document.getElementsByClassName("close")[0];
+modal.style.display = "none";
+modal_span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+document.getElementById('goal_input').addEventListener("click", function() {
+  modal.style.display = "none";
+  let t = timer.time;
+  let t_cumul, t_add;
+  let goal_name = document.getElementById('goal_name').value;
+  if (goal_name != null){
+    // calcul du temps
+    let goal_time;
+    if (t > timer.tps_periode * 60) {
+      t_cumul = timer.periode * timer.tps_periode;
+      t_add = 1 + Math.floor((t - timer.tps_periode * 60)/60);
+      goal_time = t_cumul.toString() + ' +' + t_add.toString();
+    }
+    else {
+      t_cumul = 1 + Math.floor(t/60) + (timer.periode - 1) * timer.tps_periode;
+      goal_time = t_cumul.toString();
+    }
+    // ajout du nom sur la page
+    document.getElementById('scorer').innerHTML += "<p>" + goal_name + " " + goal_time + "</p>";
+  }
+  else {
+      return;
+  }
+});
+
 // Timer
 
 function Timer() {
@@ -273,20 +312,24 @@ function Timer() {
   this.periode = 1;
   this.nb_periode = 1;
   this.tps_periode = 0;
-  this.timer = function () {};
+  this.timer = null;
   this.start = function () {
-    this.timer = setInterval(() => {
-      this.time = this.time + 1;
-      let mins = Math.floor(this.time/60);
-      if (mins.toString().length === 1) { mins = "0" + mins.toString() }
-      let secs = this.time%60;
-      if (secs.toString().length === 1) { secs = "0" + secs.toString() }
-      document.getElementById("timer-mins").textContent = mins;
-      document.getElementById("timer-secs").textContent = secs;
-    }, 1000);
+    if (this.timer !== null) return;
+    else {
+      this.timer = setInterval(() => {
+        this.time = this.time + 1;
+        let mins = Math.floor(this.time/60);
+        if (mins.toString().length === 1) { mins = "0" + mins.toString() }
+        let secs = this.time%60;
+        if (secs.toString().length === 1) { secs = "0" + secs.toString() }
+        document.getElementById("timer-mins").textContent = mins;
+        document.getElementById("timer-secs").textContent = secs;
+      }, 1000);
+    }
   };
   this.pause = function() {
     clearInterval(this.timer);
+    this.timer = null;
   }
   this.next = function() {
     if (this.time === 0) return;
@@ -306,4 +349,3 @@ let timer = new Timer();
 //Cacher Div Duel
 let divDuelGlob = document.getElementById("duel").parentNode;
 divDuelGlob.style.display = "none";
-
