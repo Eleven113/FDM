@@ -250,20 +250,24 @@ function Timer() {
   this.periode = 1;
   this.nb_periode = 1;
   this.tps_periode = 0;
-  this.timer = function () {};
+  this.timer = null;
   this.start = function () {
-    this.timer = setInterval(() => {
-      this.time = this.time + 1;
-      let mins = Math.floor(this.time/60);
-      if (mins.toString().length === 1) { mins = "0" + mins.toString() }
-      let secs = this.time%60;
-      if (secs.toString().length === 1) { secs = "0" + secs.toString() }
-      document.getElementById("timer-mins").textContent = mins;
-      document.getElementById("timer-secs").textContent = secs;
-    }, 1000);
+    if (this.timer !== null) return;
+    else {
+      this.timer = setInterval(() => {
+        this.time = this.time + 1;
+        let mins = Math.floor(this.time/60);
+        if (mins.toString().length === 1) { mins = "0" + mins.toString() }
+        let secs = this.time%60;
+        if (secs.toString().length === 1) { secs = "0" + secs.toString() }
+        document.getElementById("timer-mins").textContent = mins;
+        document.getElementById("timer-secs").textContent = secs;
+      }, 1000);
+    }
   };
   this.pause = function() {
     clearInterval(this.timer);
+    this.timer = null;
   }
   this.next = function() {
     if (this.time === 0) return;
