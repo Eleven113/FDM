@@ -204,30 +204,9 @@ function scoreButton(htmlElement){
         console.log(type);
         let score = parseInt(document.getElementById(type[0] + "_score").textContent);
         if ( document.getElementById(type[0] + "_name_team").textContent === "Stade Lavallois" && type[3] === "pls"){
-            let t = timer.time;
-            let t_cumul, t_add;
-            let goal_name = prompt("Qui a marqué ?");
-            if (goal_name != null){
-              // calcul du temps
-              let goal_time;
-              if (t > timer.tps_periode * 60) {
-                t_cumul = timer.periode * timer.tps_periode;
-                t_add = 1 + Math.floor((t - timer.tps_periode * 60)/60);
-                goal_time = t_cumul.toString() + ' +' + t_add.toString();
-              }
-              else {
-                t_cumul = 1 + Math.floor(t/60) + (timer.periode - 1) * timer.tps_periode;
-                goal_time = t_cumul.toString();
-              }
-              // ajout du nom sur la page
-              document.getElementById('scorer').innerHTML += "<p>" + goal_name + " " + goal_time + "</p>";
-            }
-            else {
-                return;
-            }
+            modal.style.display = "block";
         }
         if (type[3] === "pls") {
-
             document.getElementById(type[0] + "_score").textContent = (score + 1);
         }
         else {
@@ -241,6 +220,43 @@ function scoreButton(htmlElement){
 for (let htmlElement of document.getElementsByClassName("score_btn")) {
   scoreButton(htmlElement);
 }
+
+// Modal pour saisir le nom du buteur
+let modal = document.getElementById('myModal');
+let modal_span = document.getElementsByClassName("close")[0];
+modal.style.display = "none";
+modal_span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+document.getElementById('goal_input').addEventListener("click", function() {
+  modal.style.display = "none";
+  let t = timer.time;
+  let t_cumul, t_add;
+  let goal_name = document.getElementById('goal_name').value;
+  if (goal_name != null){
+    // calcul du temps
+    let goal_time;
+    if (t > timer.tps_periode * 60) {
+      t_cumul = timer.periode * timer.tps_periode;
+      t_add = 1 + Math.floor((t - timer.tps_periode * 60)/60);
+      goal_time = t_cumul.toString() + ' +' + t_add.toString();
+    }
+    else {
+      t_cumul = 1 + Math.floor(t/60) + (timer.periode - 1) * timer.tps_periode;
+      goal_time = t_cumul.toString();
+    }
+    // ajout du nom sur la page
+    document.getElementById('scorer').innerHTML += "<p>" + goal_name + " " + goal_time + "</p>";
+  }
+  else {
+      return;
+  }
+});
 
 // Timer
 
@@ -287,4 +303,3 @@ let timer = new Timer();
 //Cacher Div Duel
 let divDuelGlob = document.getElementById("duel").parentNode;
 divDuelGlob.style.display = "none";
-
