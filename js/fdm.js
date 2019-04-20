@@ -248,9 +248,7 @@ function scoreButton(htmlElement){
             else {
                 return;
             }
-=======
             modal.style.display = "block";
->>>>>>> fc951af2e373ff8998f0c513e265963a43a0cede
         }
         if (type[3] === "pls") {
             document.getElementById(type[0] + "_score").textContent = (score + 1);
