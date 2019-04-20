@@ -22,16 +22,12 @@ body{
     font: 1.8vh bold;
 }
 
-.title_flex{
-    background: #F37022;
-    color :black;
-}
-
-.data_flex{
-    background: white;
-    color : black;
-}
 
 .flex_glob{
     width: 60%;
+}
+
+
+.data_btn{
+    font-size: 3vh;
 }

@@ -213,7 +213,7 @@ function Timer() {
   this.pause = function() {
     clearInterval(this.timer);
   }
-  this.next = function() {
+  this.next = function() { // Ajouter confirmation changement de période
     if (this.time === 0) return;
     this.periode= this.periode + 1;
     this.time = 0;
