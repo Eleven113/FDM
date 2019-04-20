@@ -288,7 +288,3 @@ let timer = new Timer();
 let divDuelGlob = document.getElementById("duel").parentNode;
 divDuelGlob.style.display = "none";
 
-let play_btn = document.getElementById("play_btn");
-let pause_btn = document.getElementById("pause_btn");
-let step_fwd_btn = document.getElementById("step_fwd");
-console.log("chelou",play_btn);
