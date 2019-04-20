@@ -15,6 +15,10 @@ button.addEventListener("click", function () {
     let lieu = document.querySelector('input[name=lieu]:checked').value;
     let teamAdv = document.getElementById("adv").value;
 
+    // Récupération données périodes
+    timer.nb_periode = document.getElementById('nb_periode').options[document.getElementById('nb_periode').selectedIndex].value;
+    timer.tps_periode = document.getElementById('tps_periode').value;
+
     if (lieu === "home") {
         // Attribution du nom de l'équipe dans la div
         nameTeamHome.textContent = "Stade Lavallois"; // A changer dans la fonction scoreButton si modifié
@@ -52,10 +56,13 @@ button.addEventListener("click", function () {
         // Affectation cadres Buteurs et Temps
         document.getElementById("left_header").id = "chrono";
         document.getElementById("right_header").id = "scorer";
-        // Récupération données périodes
-
     };
     let chrono = document.getElementById("chrono");
+
+    let div_periode = document.createElement("div");
+    div_periode.id = "periode";
+    div_periode.innerHTML = '<span id="num-periode">1ère période</span>';
+    chrono.append(div_periode);
 
     let div_timer = document.createElement("div");
     div_timer.id = "timer";
@@ -212,6 +219,8 @@ function Timer() {
   this.htmlElement = document.getElementById('chrono');
   this.time = 0;
   this.periode = 1;
+  this.nb_periode = 1;
+  this.tps_periode = 0;
   this.timer = function () {};
   this.start = function () {
     this.timer = setInterval(() => {
@@ -231,6 +240,7 @@ function Timer() {
     if (this.time === 0) return;
     this.periode= this.periode + 1;
     this.time = 0;
+    document.getElementById('num-periode').textContent = this.periode + 'ème période';
     document.getElementById("timer-mins").textContent = "00";
     document.getElementById("timer-secs").textContent = "00";
   }
