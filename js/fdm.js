@@ -71,7 +71,7 @@ button.addEventListener("click", function () {
 
     let div_timer_btn = document.createElement("div");
     div_timer_btn.id = "timer_btn";
-    div_timer_btn.innerHTML = '<i class="fas fa-play"></i><i class="fas fa-pause"></i><i class="fas fa-step-forward"></i>';
+    div_timer_btn.innerHTML = '<i class="fas fa-play" id="play_btn"></i><i class="fas fa-pause" id="pause_btn"></i><i class="fas fa-step-forward" id="step_fwd_btn"></i>';
     chrono.append(div_timer_btn);
 
 });
@@ -247,3 +247,7 @@ function Timer() {
 }
 
 let timer = new Timer();
+let play_btn = document.getElementById("play_btn");
+let pause_btn = document.getElementById("pause_btn");
+let step_fwd_btn = document.getElementById("step_fwd");
+console.log(play_btn);
