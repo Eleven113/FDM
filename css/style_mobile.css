@@ -1,0 +1,66 @@
+.score {
+    font-size: 7vw;
+}
+
+#data{
+    widows: 95%;
+}
+
+.logo_team {
+    width: 80%;
+    height: 80%;
+}
+
+.team_name {
+    font-size: 4vw;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 25%;
+}
+
+#chrono{
+    position:absolute;
+    top: 11%;
+    right: 52%;   
+    width: 33%;
+}
+
+#timer{
+    font-size: 6vw;
+}
+
+#timer_btn {
+    font-size: 5vw;
+    justify-content: space-around;
+    width: 52%;
+}
+
+#data{
+    width: 100%;
+}
+
+.flex_glob{
+    width: 95%;
+}
+
+.data_case {
+    font-size: 4vw;
+}
+
+#periode {
+    font-size: 3vw;
+}
+
+.minus {
+    font-size: 6vw;
+}
+
+.scorer_list {
+    font-size: 3vw;
+}
+
+#team{
+    width:55%
+}
+
