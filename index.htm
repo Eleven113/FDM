@@ -12,8 +12,8 @@
     <meta property="og:author" content="Thibaut MINARD" />
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" media="screen and (min-width: 415px) and (max-width: 2048px) and (orientation:landscape)" href="css/style_tablet_pc_landscape.css" />
-<!--    <link rel="stylesheet" media="screen and (max-width: 1024px) and (min-width: 414px)" href="css/style_tablet.css" />-->
+    <link rel="stylesheet" media="screen and (min-width: 415px) and (max-width: 3840px) and (orientation:landscape)" href="css/style_tablet_pc_landscape.css" />
+    <link rel="stylesheet" media="screen and (min-width: 415px) and (max-width: 2160px) and (orientation:portrait)" href="css/style_tablet_pc_portrait.css" />
     <link rel="stylesheet" media="screen and (max-width: 414px)" href="css/style_mobile.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Feuille de match</title>
@@ -48,7 +48,7 @@
                     <option value="4">4</option>
                 </select>
                 période(s) de
-                <input type="number" id="tps_periode" name="tps_periode"> minute(s)
+                <input type="number" id="tps_periode" name="tps_periode" required> minute(s)
             </p>
             <p>
                 <input type="submit" id="button" value="Créer match">

@@ -38,12 +38,12 @@ let dataItems = [
         
     },
     {
-        name: "Duels gagnés" ,
+        name: "Ballons gagnés" ,
         name_css: "duel_ok",
         model: 2,
     },
     {
-        name: "Duels perdus" ,
+        name: "Ballons perdus" ,
         name_css: "duel_nok",
         model: 2,
     }, 
