@@ -1,0 +1,110 @@
+#container{
+    flex-direction: row;
+    
+}
+
+#team{
+    position: inherit;
+    align-items: flex-end;
+
+}
+
+#chrono, #scorer, #team {
+    width: 100%;
+    height: 25%;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 35%;
+    height: 100vh;
+    margin-left: 10px;
+}
+
+#data{
+    width: 65%;
+    position : inherit;
+    height: 100vh;
+    justify-content: center;
+}
+
+.flex_glob{
+    width: 65%;
+}
+
+
+.button {
+    font-size: 4vh;
+}
+
+
+.flex_glob {
+    margin-top: 3%;
+}
+
+timer {
+    font-size: 6vh;
+}
+
+#timer_btn {
+    font-size: 3vh;
+}
+
+#periode {
+    font-size: 3vh;
+}
+
+.team_name {
+    font-size: 2.4vw;
+}
+
+.scorer_list {
+    font-size: 1.8vh;
+}
+
+#scorer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+body{
+    background-color: white;
+    font-size: 1vh;
+}
+
+#blocpage{
+    height: 100vh;
+}
+
+
+.logo_team {
+    width: 100px;
+    height: 100px;
+}
+
+.data_btn{
+    color: black;
+    font : 5.5vh bold;
+}
+
+.data_txt{
+    font: 2.5vh bold;
+}
+
+.score{
+    font-size: 4vw;
+}
+
+#myModal {
+    border: 3px solid black;
+    position: absolute;
+    left: 0.3%;
+    top: 45%;
+}
+
+.close {
+    font-size: 1vw;
+}

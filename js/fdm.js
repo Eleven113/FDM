@@ -37,17 +37,19 @@ button.addEventListener("click", function () {
         logoTeamAway.append(logoAway);
         document.getElementById("left_header").id = "scorer";
         document.getElementById("right_header").id = "chrono";
-        // positionnement div Scorer
-        document.getElementById("scorer").style.position = "absolute";
-        document.getElementById("scorer").style.top = "2%";
-        document.getElementById("scorer").style.left = "10px";
-        // positionnement div team
-        document.getElementById("team").style.position = "absolute";
-        document.getElementById("team").style.left = "25%";
-        // positionnement div chrono
-        document.getElementById("chrono").style.position = "absolute";
-        document.getElementById("chrono").style.left = "75%";
-        document.getElementById("chrono").style.top = "2%";
+        if (screen.width < 1025 && screen.width < screen.height){
+            // positionnement div Scorer
+            document.getElementById("scorer").style.position = "absolute";
+            document.getElementById("scorer").style.top = "2%";
+            document.getElementById("scorer").style.left = "10px";
+            // positionnement div team
+            document.getElementById("team").style.position = "absolute";
+            document.getElementById("team").style.left = "25%";
+            // positionnement div chrono
+            document.getElementById("chrono").style.position = "absolute";
+            document.getElementById("chrono").style.left = "75%";
+            document.getElementById("chrono").style.top = "2%";
+        }   
     } else {
         // Attribution du nom de l'équipe dans la div
         nameTeamHome.textContent = teamAdv;
@@ -67,17 +69,19 @@ button.addEventListener("click", function () {
         // Affectation cadres Buteurs et Temps
         document.getElementById("left_header").id = "chrono";
         document.getElementById("right_header").id = "scorer";
-        // positionnement div Scorer
-        document.getElementById("chrono").style.position = "absolute";
-        document.getElementById("chrono").style.top = "2%";
-        document.getElementById("chrono").style.left = "10px";
-        // positionnement div team
-        document.getElementById("team").style.position = "absolute";
-        document.getElementById("team").style.left = "25%";
-        // positionnement div chrono
-        document.getElementById("scorer").style.position = "absolute";
-        document.getElementById("scorer").style.left = "80%";
-        document.getElementById("scorer").style.top = "2%";
+        if (screen.width < 1025 && screen.width < screen.height) {
+            // positionnement div Scorer
+            document.getElementById("chrono").style.position = "absolute";
+            document.getElementById("chrono").style.top = "2%";
+            document.getElementById("chrono").style.left = "10px";
+            // positionnement div team
+            document.getElementById("team").style.position = "absolute";
+            document.getElementById("team").style.left = "25%";
+            // positionnement div chrono
+            document.getElementById("scorer").style.position = "absolute";
+            document.getElementById("scorer").style.left = "80%";
+            document.getElementById("scorer").style.top = "2%";
+        }
         
     };
     let chrono = document.getElementById("chrono");
@@ -287,8 +291,18 @@ document.getElementById('goal_input').addEventListener("click", function() {
     header.prepend(scorer);
       
     spanScorerClose.addEventListener("click",function(){
-       spanScorerClose.parentElement.remove();
-        console.log("prout");
+        let confirmSuppr = confirm("Voulez vous retirer le but ?");
+        if (confirmSuppr){
+            spanScorerClose.parentElement.remove();
+            if (document.getElementById("home_name_team").textContent === "Stade Lavallois"){
+                let nb_but = document.getElementById("home_score").textContent;
+                document.getElementById("home_score").textContent = nb_but - 1;
+            }
+            else {
+                  let nb_but = document.getElementById("away_score").textContent;
+                document.getElementById("away_score").textContent = nb_but - 1;              
+            }
+        }
     });
   }
   else {

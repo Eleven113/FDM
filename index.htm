@@ -12,7 +12,8 @@
     <meta property="og:author" content="Thibaut MINARD" />
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" media="screen and (max-width: 1024px) and (min-width: 414px)" href="css/style_tablet.css" />
+    <link rel="stylesheet" media="screen and (min-width: 415px) and (max-width: 2048px) and (orientation:landscape)" href="css/style_tablet_pc_landscape.css" />
+<!--    <link rel="stylesheet" media="screen and (max-width: 1024px) and (min-width: 414px)" href="css/style_tablet.css" />-->
     <link rel="stylesheet" media="screen and (max-width: 414px)" href="css/style_mobile.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Feuille de match</title>
@@ -56,8 +57,8 @@
         <!-- Les nouveaux éléments sont ajoutés dans cette balise -->
         <div id="container">
             <header id="head_team">
-                <div id="left_header"></div>
-                <div id="team">
+                <div id="left_header" class="flex_head"></div>
+                <div id="team" class="flex_head">
                 <div id="home_team">
                     <div id="home_logo_team"></div>
                     <div id="home_name_team" class="team_name"></div>
@@ -70,7 +71,7 @@
                     <div id="away_score_team" class="score"><i class="far fa-minus-square score_btn" id="away_score_btn_min"></i><span id="away_score">0</span><i class="far fa-plus-square score_btn" id="away_score_btn_pls"></i></div>
                 </div>
             </div>
-                <div id="right_header"></div>
+                <div id="right_header"  class="flex_head"></div>
             </header>
             <div id="data">
 <!--                Tirs-->
