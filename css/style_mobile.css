@@ -38,10 +38,12 @@
 
 #data{
     width: 100%;
+    top:20%;
 }
 
 .flex_glob{
     width: 95%;
+    margin-top: 4%;
 }
 
 .data_case {
