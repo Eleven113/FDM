@@ -216,3 +216,8 @@ header {
 .scorer_close{
     color : red;
 }
+
+
+#tps_periode{
+    width:15%;
+}

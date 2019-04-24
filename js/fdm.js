@@ -69,19 +69,9 @@ button.addEventListener("click", function () {
         // Affectation cadres Buteurs et Temps
         document.getElementById("left_header").id = "chrono";
         document.getElementById("right_header").id = "scorer";
-//        if (screen.width < 1025 && screen.width < screen.height) {
-//            // positionnement div Scorer
-//            document.getElementById("chrono").style.position = "absolute";
-//            document.getElementById("chrono").style.top = "2%";
-//            document.getElementById("chrono").style.left = "10px";
-//            // positionnement div team
-//            document.getElementById("team").style.position = "absolute";
-//            document.getElementById("team").style.left = "25%";
-//            // positionnement div chrono
-//            document.getElementById("scorer").style.position = "absolute";
-//            document.getElementById("scorer").style.left = "80%";
-//            document.getElementById("scorer").style.top = "2%";
-//        }
+        if (screen.width < 415) {
+            document.getElementById("chrono").style.right = "19%";
+        }
         
     };
     let chrono = document.getElementById("chrono");
