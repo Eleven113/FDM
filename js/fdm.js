@@ -78,7 +78,7 @@ button.addEventListener("click", function () {
 
     let div_periode = document.createElement("div");
     div_periode.id = "periode";
-    div_periode.innerHTML = '<span id="num-periode">1ère période</span>';
+    div_periode.innerHTML = '<span id="num-periode">Période 1 / ' + timer.nb_periode + '</span>';
     chrono.append(div_periode);
 
     let div_timer = document.createElement("div");
@@ -97,10 +97,14 @@ button.addEventListener("click", function () {
 
     play_btn.addEventListener("click",function(){
         timer.start();
+        document.getElementById("play_btn").style.color = "#F37022";
+        document.getElementById("pause_btn").style.color = "black"; 
     });
 
     pause_btn.addEventListener("click",function(){
         timer.pause();
+        document.getElementById("play_btn").style.color = "black";
+        document.getElementById("pause_btn").style.color = "#F37022";  
     });
 
     step_fwd_btn.addEventListener("click",function(){
@@ -312,7 +316,7 @@ function Timer() {
   this.start = function () {
     if (this.timer !== null) return;
     else {
-      this.timer = setInterval(() => {
+      this.timer = setInterval(() => { 
         this.time = this.time + 1;
         let mins = Math.floor(this.time/60);
         if (mins.toString().length === 1) { mins = "0" + mins.toString() }
@@ -333,7 +337,7 @@ function Timer() {
     this.periode= this.periode + 1;
     this.pause();
     this.time = 0;
-    document.getElementById('num-periode').textContent = this.periode + 'ème période';
+    document.getElementById('num-periode').textContent = "Période " + this.periode + " / " + this.nb_periode ;
     document.getElementById("timer-mins").textContent = "00";
     document.getElementById("timer-secs").textContent = "00";
   }
