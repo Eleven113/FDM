@@ -281,8 +281,8 @@ document.getElementById('goal_input').addEventListener("click", function() {
     spanScorerClose.innerHTML = '<i class="fas fa-times"></i>';
     spanScorerList.append(spanScorerClose);
     scorer.append(spanScorerList);
-    let header = document.getElementById("head_team");
-    header.prepend(scorer);
+    //    let header = document.getElementById("head_team");
+    //    header.prepend(scorer);
       
     spanScorerClose.addEventListener("click",function(){
         let confirmSuppr = confirm("Voulez vous retirer le but ?");
