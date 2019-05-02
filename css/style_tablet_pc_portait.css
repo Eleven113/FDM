@@ -1,6 +1,5 @@
 body{
-    background-color: white;
-    font-size: 1vw;
+    font-size: 2.5vw;
 }
 
 #blocpage{
@@ -19,7 +18,7 @@ body{
 }
 
 .data_txt{
-    font: 1.8vh bold;
+    font-size: 2vh;
 }
 
 
@@ -29,6 +28,60 @@ body{
 
 
 .data_btn{
+    font-size: 5vh;
+}
+
+.team_name {
+    font-size: 3vh;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.score {
+    font-size: 5vw;
+}
+
+.minus {
+    font-size: 5vw;
+}
+
+#periode {
+    font-size: 2vh;
+}
+
+#timer {
+    font-size: 5.5vh;
+}
+
+#timer_btn {
     font-size: 3vh;
 }
 
+.flex_glob {
+    width: 75%;
+}
+
+.data_flex {
+    font-size: 2.5vh;
+}
+
+#myModal {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    font-size: 2vh;
+}
+
+.scorer_list {
+    font-size: 2vh;
+}

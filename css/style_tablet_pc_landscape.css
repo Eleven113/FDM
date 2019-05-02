@@ -108,3 +108,35 @@ body{
 .close {
     font-size: 1vw;
 }
+
+#formulaire{
+    font-size: 2.5vh;
+    margin-left: 20px;
+}
+
+.data_case {
+    font-size: 2.5vh;
+}
+
+#myModal {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    font-size: 2.5vh;
+}
+
+#myModal {
+    font-size: 4vh;
+}
+
+#scorer{
+    margin-top: 0px;
+}

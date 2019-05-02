@@ -335,5 +335,9 @@ header {
 
 
 #tps_periode{
-    width:15%;
+    width:50px;
+}
+
+#scorer{
+    margin-top: 5px;
 }
