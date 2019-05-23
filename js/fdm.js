@@ -49,7 +49,7 @@ button.addEventListener("click", function () {
 //            document.getElementById("chrono").style.position = "absolute";
 //            document.getElementById("chrono").style.left = "75%";
 //            document.getElementById("chrono").style.top = "2%";
-//        }   
+//        }
     } else {
         // Attribution du nom de l'équipe dans la div
         nameTeamHome.textContent = teamAdv;
@@ -72,7 +72,7 @@ button.addEventListener("click", function () {
         if (screen.width < 415) {
             document.getElementById("chrono").style.right = "19%";
         }
-        
+
     };
     let chrono = document.getElementById("chrono");
 
@@ -98,13 +98,13 @@ button.addEventListener("click", function () {
     play_btn.addEventListener("click",function(){
         timer.start();
         document.getElementById("play_btn").style.color = "#F37022";
-        document.getElementById("pause_btn").style.color = "black"; 
+        document.getElementById("pause_btn").style.color = "black";
     });
 
     pause_btn.addEventListener("click",function(){
         timer.pause();
         document.getElementById("play_btn").style.color = "black";
-        document.getElementById("pause_btn").style.color = "#F37022";  
+        document.getElementById("pause_btn").style.color = "#F37022";
     });
 
     step_fwd_btn.addEventListener("click",function(){
@@ -112,109 +112,127 @@ button.addEventListener("click", function () {
     });
 });
 
+let data = {
+  shoot: {
+    current: {
+      total : 0,
+      ok : 0,
+      nok : 0
+    },
+    cumul: {
+      total : 0,
+      ok : 0,
+      nok : 0
+    }
+  },
+  pass: {
+    current: {
+      total : 0,
+      ok : 0,
+      nok : 0
+    },
+    cumul: {
+      total : 0,
+      ok : 0,
+      nok : 0
+    }
+  },
+  duel: {
+    current: {
+      total : 0,
+      ok : 0,
+      nok : 0
+    },
+    cumul: {
+      total : 0,
+      ok : 0,
+      nok : 0
+    }
+  },
+  corner: {
+    current : {
+      total : 0
+    },
+    cumul: {
+      total: 0
+    }
+  },
+  throw: {
+    current : {
+      total : 0
+    },
+    cumul: {
+      total: 0
+    }
+  }
+};
 
 // Fonctionnement des boutons plus et moins
 
-function configureMinButton(htmlElement) {
+function configureButton(htmlElement) {
   let name = htmlElement.id;
   let type = name.split('_');
   htmlElement.addEventListener("click", function(){
-    console.log(type);
-    let data = document.getElementById(type.slice(0,-2).join('_') + "_data").textContent;
-    let num = parseInt(data);
-    console.log("click moins", type.slice(0,-2).join('_'));
-    if (type[1] === 'ok' || type[1] === 'nok') {
-      let num_total = parseInt(document.getElementById(type[0] + "_data").textContent);
-      let num_ok = parseInt(document.getElementById(type[0] + "_ok_data").textContent);
-      let num_nok = parseInt(document.getElementById(type[0] + "_nok_data").textContent);
-      console.log(num_total);
-      if (type[1] === 'ok') {
-        if (num_ok > 0) {
-            if (num_ok != 1) {
-                document.getElementById(type[0] + "_data").textContent = (num_total - 1);
-                document.getElementById(type[0] + "_ok_data").textContent = (num_ok - 1);
-                console.log(((num_ok - 1) / (num_total - 1)) * 100);
-                let numpercent_ok = parseFloat((((num_ok - 1) / (num_total - 1)) * 100).toFixed(2));
-                let numpercent_nok = 100 - numpercent_ok;
-                document.getElementById(type[0] + "_ok_datapercent").textContent = numpercent_ok + " %";
-                document.getElementById(type[0] + "_nok_datapercent").textContent = numpercent_nok + " %";
-            } else {
-                document.getElementById(type[0] + "_data").textContent = (num_total - 1);
-                document.getElementById(type[0] + "_ok_data").textContent = 0;
-                document.getElementById(type[0] + "_ok_datapercent").textContent = 0 + " %";
-                if (document.getElementById(type[0] + "_nok_data").textContent > 0) {
-                    document.getElementById(type[0] + "_nok_datapercent").textContent = "100 %";
-                }
-            }
-        }
-      } else {
-        if (num_nok > 0) {
-            if (num_nok != 1) {
-                document.getElementById(type[0] + "_data").textContent = (num_total - 1);
-                document.getElementById(type[0] + "_nok_data").textContent = (num_nok - 1);
-                console.log((num_nok - 1) / (num_total - 1));
-                let numpercent_nok = parseFloat((((num_nok - 1) / (num_total - 1)) * 100).toFixed(2));
-                let numpercent_ok = 100 - numpercent_nok;
-                document.getElementById(type[0] + "_ok_datapercent").textContent = numpercent_ok + " %";
-                document.getElementById(type[0] + "_nok_datapercent").textContent = numpercent_nok + " %";
-            } else {
-                document.getElementById(type[0] + "_data").textContent = (num_total - 1);
-                document.getElementById(type[0] + "_nok_data").textContent = 0;
-                document.getElementById(type[0] + "_nok_datapercent").textContent = 0 + " %";
-                if (document.getElementById(type[0] + "_ok_data").textContent > 0) {
-                    document.getElementById(type[0] + "_ok_datapercent").textContent = "100 %";
-                }
-            }
-        }
-      }
-    }
-    else if (num) {
-      document.getElementById(type.slice(0,-2).join('_') + "_data").textContent = num - 1;
-    }
-  });
-}
-
-function configurePlusButton(htmlElement) {
-  let name = htmlElement.id;
-  let type = name.split("_");
-  htmlElement.addEventListener("click", function(){
-    console.log(type);
-    let data = document.getElementById(type.slice(0,-2).join('_') + "_data").textContent;
-    let num = parseInt(data);
-    console.log("click plus", type.slice(0,-2).join('_'));
-    if (type[1] === 'ok' || type[1] === 'nok') {
-      let num_total = parseInt(document.getElementById(type[0] + "_data").textContent);
-      let num_ok = parseInt(document.getElementById(type[0] + "_ok_data").textContent);
-      let num_nok = parseInt(document.getElementById(type[0] + "_nok_data").textContent);
-      console.log(num_total);
-      document.getElementById(type[0] + "_data").textContent = (num_total + 1);
-      if (type[1] === 'ok') {
-        document.getElementById(type[0] + "_ok_data").textContent = (num_ok + 1);
-        let numpercent_ok = parseFloat((((num_ok + 1) / (num_total + 1)) * 100).toFixed(2));
-        let numpercent_nok = 100 - numpercent_ok;
-        console.log(type[0] + "_ok_datapercent");
-        document.getElementById(type[0] + "_ok_datapercent").textContent = numpercent_ok + " %";
-        document.getElementById(type[0] + "_nok_datapercent").textContent = numpercent_nok + " %";
+      if (type.length === 3) {
+        updateData(type[0], type[2]);
       }
       else {
-        document.getElementById(type[0] + "_nok_data").textContent = (num_nok + 1);
-        let numpercent_nok = parseFloat((((num_nok + 1) / (num_total + 1)) * 100).toFixed(2));
-        let numpercent_ok = 100 - numpercent_nok;
-        document.getElementById(type[0] + "_ok_datapercent").textContent = numpercent_ok + " %";
-        document.getElementById(type[0] + "_nok_datapercent").textContent = numpercent_nok + " %";
+        updateData(type[0], type[3], type[1]);
       }
-    }
-    else {
-      document.getElementById(type.slice(0,-2).join('_') + "_data").textContent = num + 1;
-    }
   });
 }
 
+function updateData(category, operation, type) {
+  if (operation === "min") { // bouton moins
+    if (data[category].cumul.total === 0) return;
+    else {
+      data[category].current.total -= 1;
+      data[category].cumul.total -= 1;
+      if (type) {
+        data[category].current[type] -= 1;
+        data[category].cumul[type] -= 1;
+      }
+    }
+  }
+  else { // bouton plus
+    data[category].current.total += 1;
+    data[category].cumul.total += 1;
+    if (type) {
+      data[category].current[type] += 1;
+      data[category].cumul[type] += 1;
+    }
+  }
+  updateDataDisplay();
+}
+
+function updateDataDisplay() {
+  let mode = "current"; // TODO : radio boutons pour choix du mode
+  // TODO : ajouter le symbole % comme du texte dans le html
+  for (let category of Object.keys(data)) {
+    if (Object.keys(data[category].current).length > 1) {
+      document.getElementById(category + '_ok_data').textContent = data[category][mode].ok;
+      document.getElementById(category + '_nok_data').textContent = data[category][mode].nok;
+      if (data[category][mode].total != 0) {
+        document.getElementById(category + '_ok_datapercent').textContent = (data[category][mode].ok / data[category][mode].total * 100).toFixed(2);
+        document.getElementById(category + '_nok_datapercent').textContent = (data[category][mode].nok / data[category][mode].total * 100).toFixed(2);
+      }
+      else {
+        document.getElementById(category + '_ok_datapercent').textContent = "0";
+        document.getElementById(category + '_nok_datapercent').textContent = "0";
+      }
+    }
+    if (document.getElementById(category + '_data')) {
+      document.getElementById(category + '_data').textContent = data[category][mode].total;
+    }
+  }
+}
+
+
 for (let htmlElement of document.getElementsByClassName('far fa-minus-square data_btn')) {
-  configureMinButton(htmlElement);
+  configureButton(htmlElement);
 }
 for (let htmlElement of document.getElementsByClassName('far fa-plus-square data_btn')) {
-  configurePlusButton(htmlElement);
+  configureButton(htmlElement);
 }
 
 // Fonctionnement Score
@@ -283,7 +301,7 @@ document.getElementById('goal_input').addEventListener("click", function() {
     scorer.append(spanScorerList);
     //    let header = document.getElementById("head_team");
     //    header.prepend(scorer);
-      
+
     spanScorerClose.addEventListener("click",function(){
         let confirmSuppr = confirm("Voulez vous retirer le but ?");
         if (confirmSuppr){
@@ -294,7 +312,7 @@ document.getElementById('goal_input').addEventListener("click", function() {
             }
             else {
                   let nb_but = document.getElementById("away_score").textContent;
-                document.getElementById("away_score").textContent = nb_but - 1;              
+                document.getElementById("away_score").textContent = nb_but - 1;
             }
         }
     });
@@ -316,7 +334,7 @@ function Timer() {
   this.start = function () {
     if (this.timer !== null) return;
     else {
-      this.timer = setInterval(() => { 
+      this.timer = setInterval(() => {
         this.time = this.time + 1;
         let mins = Math.floor(this.time/60);
         if (mins.toString().length === 1) { mins = "0" + mins.toString() }
@@ -352,5 +370,3 @@ divDuelGlob.style.display = "none";
 
 //Effacer buteur
 let scorerClose = document.getElementsByClassName("scorer_close");
-
-
