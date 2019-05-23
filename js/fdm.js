@@ -358,7 +358,16 @@ function Timer() {
     document.getElementById('num-periode').textContent = "Période " + this.periode + " / " + this.nb_periode ;
     document.getElementById("timer-mins").textContent = "00";
     document.getElementById("timer-secs").textContent = "00";
+    clearCurrentData();
+    updateDataDisplay();
   }
+}
+
+function clearCurrentData() {
+    for (let category of Object.keys(data)) {
+      for (let item of Object.keys(data[category].current))
+        data[category].current[item] = 0;
+    }
 }
 
 let timer = new Timer();
