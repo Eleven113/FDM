@@ -149,7 +149,7 @@ let data = {
       nok : 0
     }
   },
-  corner: {
+  throw: {
     current : {
       total : 0
     },
@@ -157,12 +157,36 @@ let data = {
       total: 0
     }
   },
-  throw: {
-    current : {
+  foulsObtained: {
+    current: {
       total : 0
     },
     cumul: {
-      total: 0
+      total : 0
+    }
+  },
+  foulsCommited: {
+    current: {
+      total : 0
+    },
+    cumul: {
+      total : 0
+    }
+  },
+  freekicksOffensive: {
+    current: {
+      total : 0
+    },
+    cumul: {
+      total : 0
+    }
+  },
+  freekicksDefensive: {
+    current: {
+      total : 0
+    },
+    cumul: {
+      total : 0
     }
   }
 };
@@ -184,14 +208,17 @@ function configureButton(htmlElement) {
 
 function updateData(category, operation, type) {
   if (operation === "min") { // bouton moins
-    if (data[category].cumul.total === 0) return;
+    if (data[category].current.total === 0) return;
+    else if (type && data[category].current[type] === 0) return;
+    else if (type) {
+      data[category].current[type] -= 1;
+      data[category].cumul[type] -= 1;
+      data[category].current.total -= 1;
+      data[category].cumul.total -= 1;
+    }
     else {
       data[category].current.total -= 1;
       data[category].cumul.total -= 1;
-      if (type) {
-        data[category].current[type] -= 1;
-        data[category].cumul[type] -= 1;
-      }
     }
   }
   else { // bouton plus
@@ -207,7 +234,6 @@ function updateData(category, operation, type) {
 
 function updateDataDisplay() {
   let mode = "current"; // TODO : radio boutons pour choix du mode
-  // TODO : ajouter le symbole % comme du texte dans le html
   for (let category of Object.keys(data)) {
     if (Object.keys(data[category].current).length > 1) {
       document.getElementById(category + '_ok_data').textContent = data[category][mode].ok;
