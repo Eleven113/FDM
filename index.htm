@@ -18,21 +18,50 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Feuille de match</title>
 </head>
-
+    
 <body>
     <div id="blocpage">
+<!--
+        <div id="disclaimer">
+            <div id="disclaimer_close"><i class="fas fa-times"></i></div>
+            <p>
+            Merci de votre participation.<br/><br/>
+            Avant toute chose, il ne faut pas oublier qu'il s'agit d'une version en cours de développement qui n'est pas exempt de bugs (principalement d'affichage).<br/>
+            L'affichage est optimisé sur tablette aussi bien en mode portait que paysage.<br/>
+            L'utilisation sur smartphone est néanmoins possible.<br/><br/>
+
+            Il n'est pas possible pour l'instant d'exporter les résultats autrement qu'en faisant une capture d'écran.<br/>
+            Pour les appareils iOS, Bouton Power + Bouton Home.<br/>
+            Pour la plupart des appareils Android, Bouton Volume Bas + Bouton Power.<br/>
+            Sur android, l'application <a href="https://play.google.com/store/apps/details?id=pro.capture.screenshot">ScreenMaster</a> permet de capturer une sélection de l'écran. <br/><br/>
+
+            Voici la liste des améliorations à venir : <br/>
+                - Gestion des stats par période <br/>
+                - Création d'une liste de joueurs<br/>
+                - Mise en place d'une composition d'équipe<br/>
+                - Enrichissement des données de buts (buteur, passeur, situation)<br/>
+                - Enregistrement des stats dans une base de données consultable en ligne<br/>
+                - Partage des résultats sur les réseaux sociaux<br/><br/> 
+            <span id="contact">                 
+            Pour signaler un problème, une suggestion d'amélioration, de nouvelle fonctionnalité ou simplement donner un avis :<br/>
+            Contactez nous par <a href="mailto:minard.thibaut@free.fr,marine.kornya@gmail.com"><i class="fas fa-envelope"></i> mail</a> ou par <a href="sms:0623912966"><i class="fas fa-sms"></i> SMS</a><br/><br/>
+            </span>      
+            Cliquez sur la croix pour fermer cette fenêtre.<br/>
+            </p>
+        </div>
+-->
         <div id="formulaire">
             <h1>Création de la feuille de stats</h1>
-            <p>
+            <div>
                 <label for="av">
                     <h2>Adversaire :</h2>
                 </label>
                 <input type="text" name="adv" id="adv" required>
-            </p>
-            <p>
-                <p>
+            </div>
+            <div>
+                <div>
                     <h2>Lieu du match :</h2>
-                </p>
+                </div>
                 <div>
                     <input type="radio" id="lieu" name="lieu" value="home" checked>
                     <label for="home">à domicile</label>
@@ -42,9 +71,9 @@
                     <input type="radio" id="lieu" name="lieu" value="away">
                     <label for="away">à l'extérieur</label>
                 </div>
-            </p>
-            <p>
-                <h2>Durée du match :</h2><br />
+            </div>
+            <div>
+                <h2>Durée du match :</h2>
                 <select name="nb_periode" id="nb_periode">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -52,11 +81,11 @@
                     <option value="4">4</option>
                 </select>
                 période(s) de
-                <input type="number" id="tps_periode" name="tps_periode" size="2" required> minute(s)
-            </p>
-            <p>
+                <input type="number" id="tps_periode" name="tps_periode" size="2" required> minute(s)<br/><br/>
+            </div>
+            <div>
                 <input type="submit" id="button" value="Créer match">
-            </p>
+            </div>
         </div>
         <!-- Les nouveaux éléments sont ajoutés dans cette balise -->
         <div id="container">

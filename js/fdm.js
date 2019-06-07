@@ -370,3 +370,12 @@ divDuelGlob.style.display = "none";
 
 //Effacer buteur
 let scorerClose = document.getElementsByClassName("scorer_close");
+
+
+//Fermeture disclaimer
+let disclaimer = document.getElementById("disclaimer");
+let disclaimerClose = document.getElementById("disclaimer_close");
+
+disclaimerClose.addEventListener("click",function(){
+    disclaimer.style.display = "none";
+});

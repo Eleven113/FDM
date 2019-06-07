@@ -341,3 +341,37 @@ header {
 #scorer{
     margin-top: 5px;
 }
+
+#disclaimer{
+    font-size:2em;
+    width:100%;
+    min-height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,0.9);
+    color : white;
+}
+
+#disclaimer_close{
+    color: #F37022;
+    position : absolute;
+    top:5px;
+    right:15px;
+    font-size:2em;
+    cursor: pointer;
+}
+
+a{
+    color: #F37022;
+    text-decoration: none;
+}
+
+p{
+    margin:40px;
+    margin-top:60px;
+}
+
+#contact{
+    font-size:1.2em;
+}
