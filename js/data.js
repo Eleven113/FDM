@@ -35,7 +35,6 @@ let dataItems = [
         name:  "Duels" ,
         name_css: "duel",
         model: 0
-
     },
     {
         name: "Ballons gagnés" ,
@@ -48,14 +47,28 @@ let dataItems = [
         model: 2,
     },
     {
-        name: "Corners" ,
-        name_css: "corner",
-        model: 1
-    }
-    ,
-    {
         name: "Touches" ,
         name_css: "throw",
+        model: 1
+    },
+    {
+        name: "Fautes obtenues",
+        name_css: "foulsObtained",
+        model: 1
+    },
+    {
+        name: "Fautes commises",
+        name_css: "foulsCommited",
+        model: 1
+    },
+    {
+        name: "Coups de pied arrêtés offensifs",
+        name_css: "freekicksOffensive",
+        model: 1
+    },
+    {
+        name: "Coups de pied arrêtés défensifs",
+        name_css: "freekicksDefensive",
         model: 1
     }
 ]
@@ -81,7 +94,7 @@ function createDataItems(dataItem){
             break;
 
         case 2:
-            divItems.innerHTML = '<div class="button"><i class="far fa-minus-square data_btn" id="' + dataItem.name_css + '_btn_min"></i></div><div id="' + dataItem.name_css + '" class="data_case"><div id="' + dataItem.name_css + '_title" class="title_flex"><span class="data_txt">' + dataItem.name + '</span></div><div class="data_flex"><span id="' + dataItem.name_css + '_data">0</span>&nbsp;-&nbsp;<span id="' + dataItem.name_css + '_datapercent">0%</span></div></div><div class="button"><i class="far fa-plus-square data_btn" id="' + dataItem.name_css + '_btn_pls"></i></div>'
+            divItems.innerHTML = '<div class="button"><i class="far fa-minus-square data_btn" id="' + dataItem.name_css + '_btn_min"></i></div><div id="' + dataItem.name_css + '" class="data_case"><div id="' + dataItem.name_css + '_title" class="title_flex"><span class="data_txt">' + dataItem.name + '</span></div><div class="data_flex"><span id="' + dataItem.name_css + '_data">0</span>&nbsp;-&nbsp;<span id="' + dataItem.name_css + '_datapercent">0</span>%</div></div><div class="button"><i class="far fa-plus-square data_btn" id="' + dataItem.name_css + '_btn_pls"></i></div>'
             divData.append(divItems);
             break;
     }
