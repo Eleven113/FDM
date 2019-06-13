@@ -24,7 +24,7 @@ header{
 }
 
 #data{
-    width: 65%;
+    width: 70%;
     position : inherit;
     height: 100vh;
     justify-content: center;
@@ -32,6 +32,9 @@ header{
 
 .flex_glob{
     width: 65%;
+    line-height: 3vh;
+    margin-top: 1.35%;
+    margin-bottom: 1.35%;
 }
 
 
@@ -39,10 +42,6 @@ header{
     font-size: 4vh;
 }
 
-
-.flex_glob {
-    margin-top: 3%;
-}
 
 timer {
     font-size: 6vh;
@@ -87,11 +86,11 @@ body{
 
 .data_btn{
     color: black;
-    font : 5.5vh bold;
+    font : 4.4vh bold;
 }
 
 .data_txt{
-    font: 2.5vh bold;
+    font: 2.5vh;
 }
 
 .score{
@@ -115,7 +114,10 @@ body{
 }
 
 .data_case {
-    font-size: 2.2vh;
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
 }
 
 #myModal {
@@ -139,4 +141,22 @@ body{
 
 #scorer{
     margin-top: 0px;
+}
+
+.title_flex{
+    width:70%;
+    border: inherit;
+    border-right: 1px solid black;
+}
+
+.data_flex{
+    width: 30%;
+    border: inherit;
+    border-left: 1px solid black;
+}
+
+.title_flex,.data_flex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

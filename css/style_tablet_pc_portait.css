@@ -18,17 +18,17 @@ body{
 }
 
 .data_txt{
-    font-size: 1.8vh;
+    font-size: 1.4vh;
 }
 
 
 .flex_glob{
-    width: 60%;
+    width: 75%;
 }
 
 
 .data_btn{
-    font-size: 5vh;
+    font-size: 3.6vh;
 }
 
 .team_name {
@@ -59,12 +59,8 @@ body{
     font-size: 3vh;
 }
 
-.flex_glob {
-    width: 75%;
-}
-
 .data_flex {
-    font-size: 2.4vh;
+    font-size: 1.8vh;
 }
 
 #myModal {
@@ -84,4 +80,12 @@ body{
 
 .scorer_list {
     font-size: 2vh;
+}
+
+#container{
+    height: 100vh;
+}
+
+data{
+    width: 100%;
 }

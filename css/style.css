@@ -117,8 +117,8 @@ body{
 }
 
 #formulaire {
-    margin-top: 5px;
-    margin-left: 5px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 #container {
@@ -200,7 +200,7 @@ body{
 .minus {
     font-size: 4.6em;
     text-align: center;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: flex-end;
 }

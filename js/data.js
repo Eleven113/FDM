@@ -62,12 +62,12 @@ let dataItems = [
         model: 1
     },
     {
-        name: "Coups de pied arrêtés offensifs",
+        name: "CdP arrêtés off.",
         name_css: "freekicksOffensive",
         model: 1
     },
     {
-        name: "Coups de pied arrêtés défensifs",
+        name: "CdP arrêtés déf.",
         name_css: "freekicksDefensive",
         model: 1
     }
@@ -77,8 +77,6 @@ let divData = document.getElementById("data");
 divData.innerHTML = "";
 
 function createDataItems(dataItem){
-    console.log("et encore en ligne");
-    console.log(dataItem.model);
     let divData = document.getElementById("data");
     let divItems = document.createElement("div");
     divItems.className = "flex_glob";
