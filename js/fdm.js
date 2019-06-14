@@ -233,9 +233,9 @@ function updateData(category, operation, type) {
 }
 
 function updateDataDisplay() {
-  let mode = "current"; // TODO : radio boutons pour choix du mode
+  let mode = (document.getElementById("switch_check").checked ? "current" : "cumul");
   for (let category of Object.keys(data)) {
-    if (Object.keys(data[category].current).length > 1) {
+    if (Object.keys(data[category][mode]).length > 1) {
       document.getElementById(category + '_ok_data').textContent = data[category][mode].ok;
       document.getElementById(category + '_nok_data').textContent = data[category][mode].nok;
       if (data[category][mode].total != 0) {
@@ -415,6 +415,9 @@ disclaimerClose.addEventListener("click",function(){
     disclaimer.style.display = "none";
 });
 
-    
-    
-    
+//Switch mode période et mode cumul
+let switchSpan = document.getElementById("switch_check").nextElementSibling;
+switchSpan.addEventListener("click", function(event){
+  console.log("clic sur le switch");
+  updateDataDisplay();
+});
