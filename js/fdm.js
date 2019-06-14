@@ -115,6 +115,11 @@ button.addEventListener("click", function () {
     step_fwd_btn.addEventListener("click",function(){
         timer.next();
     });
+
+    //Switch mode période et mode cumul
+    divSwitchBtn.addEventListener("click", function(event){
+      updateDataDisplay();
+    });
 });
 
 let data = {
@@ -238,7 +243,7 @@ function updateData(category, operation, type) {
 }
 
 function updateDataDisplay() {
-  let mode = (document.getElementById("switch_check").checked ? "current" : "cumul");
+  let mode = (document.getElementById("myonoffswitch").checked ? "cumul" : "current");
   for (let category of Object.keys(data)) {
     if (Object.keys(data[category][mode]).length > 1) {
       document.getElementById(category + '_ok_data').textContent = data[category][mode].ok;
@@ -416,13 +421,6 @@ let scorerClose = document.getElementsByClassName("scorer_close");
 let disclaimer = document.getElementById("disclaimer");
 let disclaimerClose = document.getElementById("disclaimer_close");
 
-disclaimerClose.addEventListener("click",function(){
-    disclaimer.style.display = "none";
-});
-
-//Switch mode période et mode cumul
-let switchSpan = document.getElementById("switch_check").nextElementSibling;
-switchSpan.addEventListener("click", function(event){
-  console.log("clic sur le switch");
-  updateDataDisplay();
-});
+// disclaimerClose.addEventListener("click",function(){
+//     disclaimer.style.display = "none";
+// });
