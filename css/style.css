@@ -412,7 +412,7 @@ p{
     display: block; width: 25px; margin: 5px;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
-    right: 82px;
+    right: 96px;
     border: 2px solid #FFFFFF; border-radius: 20px;
     transition: all 0.3s ease-in 0s; 
 }
@@ -421,7 +421,4 @@ p{
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
-}
-#onoffswitch {
-    margin-top: 20px;
 }
