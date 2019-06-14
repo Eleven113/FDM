@@ -62,7 +62,7 @@ let dataItems = [
         model: 1
     },
     {
-        name: "CdP arrêtés off.",
+        name: "Cdp arrêtés off.",
         name_css: "freekicksOffensive",
         model: 1
     },
