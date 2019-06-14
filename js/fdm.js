@@ -249,8 +249,9 @@ function updateDataDisplay() {
       document.getElementById(category + '_ok_data').textContent = data[category][mode].ok;
       document.getElementById(category + '_nok_data').textContent = data[category][mode].nok;
       if (data[category][mode].total != 0) {
-        document.getElementById(category + '_ok_datapercent').textContent = (data[category][mode].ok / data[category][mode].total * 100).toFixed(2);
-        document.getElementById(category + '_nok_datapercent').textContent = (data[category][mode].nok / data[category][mode].total * 100).toFixed(2);
+        let ok = Math.round(data[category][mode].ok / data[category][mode].total * 100);
+        document.getElementById(category + '_ok_datapercent').textContent = ok
+        document.getElementById(category + '_nok_datapercent').textContent = 100-ok;
       }
       else {
         document.getElementById(category + '_ok_datapercent').textContent = "0";
