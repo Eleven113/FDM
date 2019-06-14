@@ -76,20 +76,25 @@ button.addEventListener("click", function () {
     };
     let chrono = document.getElementById("chrono");
 
-    let div_periode = document.createElement("div");
-    div_periode.id = "periode";
-    div_periode.innerHTML = '<span id="num-periode">Période 1 / ' + timer.nb_periode + '</span>';
-    chrono.append(div_periode);
+    let divPeriode = document.createElement("div");
+    divPeriode.id = "periode";
+    divPeriode.innerHTML = '<span id="num-periode">Période 1 / ' + timer.nb_periode + '</span>';
+    chrono.append(divPeriode);
 
-    let div_timer = document.createElement("div");
-    div_timer.id = "timer";
-    div_timer.innerHTML = '<span id="timer-mins">00</span>:<span id="timer-secs">00</span>';
-    chrono.append(div_timer);
+    let divTimer = document.createElement("div");
+    divTimer.id = "timer";
+    divTimer.innerHTML = '<span id="timer-mins">00</span>:<span id="timer-secs">00</span>';
+    chrono.append(divTimer);
 
-    let div_timer_btn = document.createElement("div");
-    div_timer_btn.id = "timer_btn";
-    div_timer_btn.innerHTML = '<i class="fas fa-play" id="play_btn"></i><i class="fas fa-pause" id="pause_btn"></i><i class="fas fa-step-forward" id="step_fwd_btn"></i>';
-    chrono.append(div_timer_btn);
+    let divTimerBtn = document.createElement("div");
+    divTimerBtn.id = "timer_btn";
+    divTimerBtn.innerHTML = '<i class="fas fa-play" id="play_btn"></i><i class="fas fa-pause" id="pause_btn"></i><i class="fas fa-step-forward" id="step_fwd_btn"></i>';
+    chrono.append(divTimerBtn);
+
+    let divSwitchBtn = document.createElement("div");
+    divSwitchBtn.id = "onoffswitch";
+    divSwitchBtn.innerHTML = '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked><label class="onoffswitch-label" for="myonoffswitch"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label>';
+    chrono.append(divSwitchBtn);
 
     let play_btn = document.getElementById("play_btn");
     let pause_btn = document.getElementById("pause_btn");
