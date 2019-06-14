@@ -240,24 +240,6 @@ function updateData(category, operation, type) {
 }
 
 function updateDataDisplay() {
-<<<<<<< HEAD
-    let mode = "current"; // TODO : radio boutons pour choix du mode
-    for (let category of Object.keys(data)) {
-        if (Object.keys(data[category].current).length > 1) {
-            document.getElementById(category + '_ok_data').textContent = data[category][mode].ok;
-            document.getElementById(category + '_nok_data').textContent = data[category][mode].nok;
-            if (data[category][mode].total != 0) {
-                document.getElementById(category + '_ok_datapercent').textContent = (data[category][mode].ok / data[category][mode].total * 100).toFixed(2);
-                document.getElementById(category + '_nok_datapercent').textContent = (data[category][mode].nok / data[category][mode].total * 100).toFixed(2);
-            } else {
-                document.getElementById(category + '_ok_datapercent').textContent = "0";
-                document.getElementById(category + '_nok_datapercent').textContent = "0";
-            }
-        }
-        if (document.getElementById(category + '_data')) {
-            document.getElementById(category + '_data').textContent = data[category][mode].total;
-        }
-=======
   let mode = (document.getElementById("myonoffswitch").checked ? "cumul" : "current");
   for (let category of Object.keys(data)) {
     if (Object.keys(data[category][mode]).length > 1) {
@@ -275,8 +257,8 @@ function updateDataDisplay() {
     }
     if (document.getElementById(category + '_data')) {
       document.getElementById(category + '_data').textContent = data[category][mode].total;
->>>>>>> e6816e2010dfa85ef5a536a7ea037148a795eb12
     }
+  }
 }
 
 
@@ -437,13 +419,6 @@ let scorerClose = document.getElementsByClassName("scorer_close");
 let disclaimer = document.getElementById("disclaimer");
 let disclaimerClose = document.getElementById("disclaimer_close");
 
-<<<<<<< HEAD
-//disclaimerClose.addEventListener("click",function(){
-//    disclaimer.style.display = "none";
-//});
-
-=======
 // disclaimerClose.addEventListener("click",function(){
 //     disclaimer.style.display = "none";
 // });
->>>>>>> e6816e2010dfa85ef5a536a7ea037148a795eb12
