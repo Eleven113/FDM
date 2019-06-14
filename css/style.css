@@ -378,7 +378,7 @@ p{
 
 /* Switch button */
 .onoffswitch {
-    position: relative; width: 121px;
+    position: absolute; width: 121px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
