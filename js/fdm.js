@@ -92,8 +92,8 @@ button.addEventListener("click", function () {
     chrono.append(divTimerBtn);
     
     let divSwitchBtn = document.createElement("div");
-    divSwitchBtn.id = "switch_btn";
-    divSwitchBtn.innerHTML = '<label class="switch"><input type="checkbox" id="switch_check" name="switch_check"><span class="slider round"></span></label>';
+    divSwitchBtn.id = "onoffswitch";
+    divSwitchBtn.innerHTML = '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked><label class="onoffswitch-label" for="myonoffswitch"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label>';
     chrono.append(divSwitchBtn);
 
     let play_btn = document.getElementById("play_btn");
